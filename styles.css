@@ -471,3 +471,43 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
 }
+/* ==========================================
+   AUTOMATIC DEVICE DETECTION & LAYOUT SWITCH
+   ========================================== */
+
+/* 1. DESKTOP MODE (Automatically active on screens >= 992px) */
+@media (min-width: 992px) {
+  /* Restores desktop navigation display */
+  .navbar-collapse,
+  .nav-menu-wrapper,
+  header nav {
+    display: flex !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+/* 2. MOBILE / TABLET MODE (Automatically switches on screens < 992px) */
+@media (max-width: 991.98px) {
+  /* Automatically stacks navigation items for touch screens */
+  .navbar-collapse,
+  .nav-menu-wrapper,
+  header nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Adjust link spacing for touch targets on phones */
+  .navbar-nav .nav-link,
+  header nav a {
+    padding: 12px 16px;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}
