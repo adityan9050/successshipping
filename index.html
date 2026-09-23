@@ -121,6 +121,34 @@
     height: 35px !important;
     max-height: 35px !important;
   }
+	/* --- MOBILE HEADER FLEX ALIGNMENT --- */
+@media (max-width: 991.98px) {
+  /* 1. Force the header container to fill width and push items to edges */
+  .header-container,
+  .nav-wrapper {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  /* 2. Lock logo to the far left */
+  .nav-wrapper > a:first-child {
+    margin-right: auto !important;
+  }
+
+  /* 3. Lock hamburger icon to the far right */
+  .mobile-hamburger-btn {
+    display: flex !important;
+    margin-left: auto !important;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.75rem;
+    cursor: pointer;
+    padding: 4px;
+  }
+}
 
   /* 2. Hide both header & hero "GET A QUOTE" buttons on mobile */
   .btn-quote,
