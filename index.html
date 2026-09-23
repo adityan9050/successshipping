@@ -114,6 +114,25 @@
       .grid-3, .footer-grid { grid-template-columns: 1fr; }
       header.hero-header nav { display: none; }
     }
+	  /* --- MOBILE FIX: SHRINK LOGO & HIDE QUOTE BUTTONS --- */
+@media (max-width: 991.98px) {
+  /* 1. Force logo to shrink on mobile */
+  .site-logo {
+    height: 35px !important;
+    max-height: 35px !important;
+  }
+
+  /* 2. Hide both header & hero "GET A QUOTE" buttons on mobile */
+  .btn-quote,
+  .hero-actions .btn-pill-outline {
+    display: none !important;
+  }
+
+  /* 3. Ensure hero action button stays centered */
+  .hero-actions {
+    justify-content: center !important;
+  }
+}
   </style>
 </head>
 <body>
