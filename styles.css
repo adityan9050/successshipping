@@ -655,3 +655,13 @@ body {
     display: none !important;
   }
 }
+@media (max-width: 991.98px) {
+  /* Targets second link inside hero section containers */
+  .hero a:nth-of-type(2),
+  .hero-buttons a:nth-of-type(2),
+  .hero-content a:nth-of-type(2),
+  header + section a:nth-of-type(2),
+  main section:first-of-type a:nth-of-type(2) {
+    display: none !important;
+  }
+}
