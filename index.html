@@ -39,6 +39,23 @@
       object-fit: contain;
     }
 
+    /* HEADER POSITIONING & FLEX */
+    .hero-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 1rem 0;
+    }
+
+    .nav-wrapper {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+
     /* HERO CAROUSEL CONTAINER */
     .hero-carousel-wrapper {
       position: relative;
@@ -68,13 +85,6 @@
     }
 
     .hero-content { position: relative; z-index: 3; max-width: 820px; text-align: center; padding: 7rem 1.5rem 3rem; color: #FFFFFF; }
-    .hero-badge-pill {
-      display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px); padding: 0.4rem 1.25rem; border-radius: 50px; font-size: 0.72rem; font-weight: 800;
-      letter-spacing: 0.12em; color: #111111; text-transform: uppercase; margin-bottom: 1.75rem;
-    }
-    .hero-badge-pill::before { content: ''; display: inline-block; width: 14px; height: 2px; background-color: var(--brand-orange); }
-
     .hero-title { font-size: 3.25rem; font-weight: 800; line-height: 1.15; color: #FFFFFF; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
     .hero-subtitle { font-size: 1rem; color: rgba(255, 255, 255, 0.88); line-height: 1.7; max-width: 680px; margin: 0 auto 2.25rem; }
 
@@ -89,7 +99,6 @@
       color: #FFFFFF; padding: 0.8rem 2rem; border-radius: 50px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
       text-transform: uppercase; text-decoration: none; transition: all 0.2s ease;
     }
-    .btn-pill-outline:hover { background-color: rgba(255, 255, 255, 0.2); border-color: #FFFFFF; transform: translateY(-2px); }
 
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .card { background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
@@ -100,106 +109,128 @@
     .footer-col h4 { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-orange); margin-bottom: 1.25rem; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
     .footer-col ul a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
-    .footer-col ul a:hover { color: var(--brand-orange); }
 
-    .social-icon-circle {
-      width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(4px); color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center;
-      font-size: 0.8rem; text-decoration: none; transition: all 0.2s ease;
-    }
-    .social-icon-circle:hover { background: var(--brand-orange); transform: translateY(-2px); }
+    /* DESKTOP NAV DEFAULT HIDE HAMBURGER */
+    .mobile-hamburger-btn { display: none; }
 
-    @media (max-width: 992px) {
+    /* CLEAN MOBILE MEDIA QUERY */
+    @media (max-width: 991.98px) {
+      .site-logo {
+        height: 35px !important;
+        max-height: 35px !important;
+      }
+
+      .header-container,
+      .nav-wrapper {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+      }
+
+      .mobile-hamburger-btn {
+        display: flex !important;
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 1.75rem;
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      .desktop-social-links,
+      .btn-quote,
+      .hero-actions .btn-pill-outline {
+        display: none !important;
+      }
+
       .hero-title { font-size: 2.25rem; }
       .grid-3, .footer-grid { grid-template-columns: 1fr; }
-      header.hero-header nav { display: none; }
+      .hero-actions { justify-content: center !important; }
+
+      .nav-links-wrapper {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #0d0f12;
+        padding: 1.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-links-wrapper.is-active {
+        display: block !important;
+      }
+
+      .nav-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .nav-menu a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .mobile-social-links {
+        display: flex;
+        gap: 1.25rem;
+      }
+
+      .mobile-social-links a {
+        color: #ffffff;
+        font-size: 1.2rem;
+      }
     }
-	  /* --- MOBILE FIX: SHRINK LOGO & HIDE QUOTE BUTTONS --- */
-@media (max-width: 991.98px) {
-  /* 1. Force logo to shrink on mobile */
-  .site-logo {
-    height: 35px !important;
-    max-height: 35px !important;
-  }
-	/* --- MOBILE HEADER FLEX ALIGNMENT --- */
-@media (max-width: 991.98px) {
-  /* 1. Force the header container to fill width and push items to edges */
-  .header-container,
-  .nav-wrapper {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-  }
-
-  /* 2. Lock logo to the far left */
-  .nav-wrapper > a:first-child {
-    margin-right: auto !important;
-  }
-
-  /* 3. Lock hamburger icon to the far right */
-  .mobile-hamburger-btn {
-    display: flex !important;
-    margin-left: auto !important;
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 1.75rem;
-    cursor: pointer;
-    padding: 4px;
-  }
-}
-
-  /* 2. Hide both header & hero "GET A QUOTE" buttons on mobile */
-  .btn-quote,
-  .hero-actions .btn-pill-outline {
-    display: none !important;
-  }
-
-  /* 3. Ensure hero action button stays centered */
-  .hero-actions {
-    justify-content: center !important;
-  }
-}
   </style>
 </head>
 <body>
 
   <!-- NAVIGATION HEADER -->
   <header class="hero-header no-border">
-	  <div class="container header-container">
-    <div class="nav-wrapper">
-      <a href="index.html">
-        <img src="logo-white.png" alt="Success Shipping Services" class="site-logo">
-      </a>
-		<!-- 2. Hamburger Menu Button (Visible on Mobile Only) -->
-    <button class="mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-      <!-- 3. Navigation Links -->
-    <nav class="nav-links-wrapper" id="navLinksWrapper">
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="careers.html">Careers</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-		<!-- Social Icons inside mobile dropdown -->
-      <div class="mobile-social-links">
-        <a href="https://www.youtube.com/@SuccessShipping"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://www.instagram.com/success_shipping_chennai/"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=61581851585515"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.linkedin.com/company/successshippingservices/"><i class="fa-brands fa-linkedin"></i></a>
-      </div>
-    </nav>
-      <!-- 4. Desktop Social Icons (Visible on Desktop Only) -->
-    <div class="desktop-social-links">
+    <div class="container header-container">
+      <div class="nav-wrapper">
+        <a href="index.html">
+          <img src="logo-white.png" alt="Success Shipping Services" class="site-logo">
+        </a>
+
+        <!-- Hamburger Menu Button (Far Right on Mobile) -->
+        <button class="mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Navigation Links Dropdown -->
+        <nav class="nav-links-wrapper" id="navLinksWrapper">
+          <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mobile-social-links">
+            <a href="https://www.youtube.com/@SuccessShipping" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/success_shipping_chennai/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61581851585515" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/successshippingservices/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </nav>
+
+        <!-- Desktop Social Icons -->
+        <div class="desktop-social-links">
           <a href="https://www.youtube.com/@SuccessShipping" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://www.instagram.com/success_shipping_chennai/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://www.facebook.com/profile.php?id=61581851585515" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="https://www.linkedin.com/company/successshippingservices/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
+
         <a href="contact.html" class="btn-quote">GET A QUOTE</a>
       </div>
     </div>
@@ -297,9 +328,7 @@
             <a href="https://www.linkedin.com/company/successshippingservices/" target="_blank" rel="noopener noreferrer" class="social-icon-circle" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
         </div>
-        <div class="footer-col">
-          
-        </div>
+        <div class="footer-col"></div>
         <div class="footer-col">
           <h4>Services</h4>
           <ul>
@@ -335,56 +364,22 @@
           slides[currentSlide].classList.add("active");
         }, 4000);
       }
+
+      // Mobile Menu Handler
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const navWrapper = document.getElementById('navLinksWrapper');
+
+      if (menuBtn && navWrapper) {
+        menuBtn.addEventListener('click', () => {
+          navWrapper.classList.toggle('is-active');
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+          }
+        });
+      }
     });
   </script>
-	<script>
-  (function () {
-    // Automatically detect desktop vs mobile screen width
-    const desktopQuery = window.matchMedia('(min-width: 992px)');
-
-    function handleDeviceChange(e) {
-      const navContainer = document.querySelector('.navbar-collapse') 
-                        || document.querySelector('.nav-menu-wrapper') 
-                        || document.querySelector('header nav');
-
-      if (!navContainer) return;
-
-      if (e.matches) {
-        // Desktop detected: clear mobile classes automatically
-        navContainer.classList.remove('mobile-view', 'is-open');
-        navContainer.classList.add('desktop-view');
-      } else {
-        // Mobile device detected: activate mobile behavior automatically
-        navContainer.classList.remove('desktop-view');
-        navContainer.classList.add('mobile-view');
-      }
-    }
-
-    // Run automatic check on initial page load
-    handleDeviceChange(desktopQuery);
-
-    // Automatically listen for screen or device changes in real-time
-    desktopQuery.addEventListener('change', handleDeviceChange);
-  })();
-</script>
-	<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const navWrapper = document.getElementById('navLinksWrapper');
-
-    if (menuBtn && navWrapper) {
-      menuBtn.addEventListener('click', () => {
-        navWrapper.classList.toggle('is-active');
-        
-        // Toggle icon between Hamburger (bars) and Close (X)
-        const icon = menuBtn.querySelector('i');
-        if (icon) {
-          icon.classList.toggle('fa-bars');
-          icon.classList.toggle('fa-xmark');
-        }
-      });
-    }
-  });
-</script>
 </body>
 </html>
