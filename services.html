@@ -39,13 +39,16 @@
       object-fit: contain;
     }
 
-    /* HEADER & NAV */
+    /* FIXED/STICKY HEADER & NAV */
     header.nav-header {
       background-color: var(--brand-dark);
       padding: 1rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.1);
-      position: relative;
-      z-index: 100;
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
     }
 
     .nav-wrapper {
@@ -322,7 +325,7 @@
 </head>
 <body>
 
-  <!-- NAVIGATION HEADER -->
+  <!-- FIXED NAVIGATION HEADER -->
   <header class="nav-header">
     <div class="container header-container">
       <div class="nav-wrapper">
@@ -330,7 +333,7 @@
           <img src="logo-white.png" alt="Success Shipping Services" class="site-logo">
         </a>
 
-        <!-- Hamburger Menu Button (Visible on Mobile) -->
+        <!-- Mobile Hamburger Button -->
         <button class="mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -605,7 +608,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Mobile Menu Toggle
       const menuBtn = document.getElementById('mobileMenuBtn');
       const navWrapper = document.getElementById('navLinksWrapper');
 
