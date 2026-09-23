@@ -429,17 +429,17 @@ header nav ul.nav-menu a.active {
 /* Page-Specific Backgrounds with Dark Overlay */
 .hero-about {
   background-image: linear-gradient(rgba(20, 25, 30, 0.75), rgba(20, 25, 30, 0.75)), 
-                    url('images/about-hero.jpg');
+                    url('about-hero.jpg');
 }
 
 .hero-services {
   background-image: linear-gradient(rgba(20, 25, 30, 0.75), rgba(20, 25, 30, 0.75)), 
-                    url('images/services-hero.jpg');
+                    url('services-hero.jpg');
 }
 
 .hero-contact {
   background-image: linear-gradient(rgba(20, 25, 30, 0.75), rgba(20, 25, 30, 0.75)), 
-                    url('images/contact-hero.jpg');
+                    url('contact-hero.jpg');
 }
 
 .subpage-hero .breadcrumb {
