@@ -648,3 +648,10 @@ body {
     font-size: 1.25rem;
   }
 }
+@media (max-width: 991.98px) {
+  /* Automatically hides any contact/quote button inside the hero section on mobile */
+  header + section a[href*="contact"],
+  a[href*="contact_5.html"] {
+    display: none !important;
+  }
+}
