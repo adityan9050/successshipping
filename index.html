@@ -120,21 +120,34 @@
 
   <!-- NAVIGATION HEADER -->
   <header class="hero-header no-border">
+	  <div class="container header-container">
     <div class="nav-wrapper">
       <a href="index.html">
         <img src="logo-white.png" alt="Success Shipping Services" class="site-logo">
       </a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-	  <li><a href="careers.html">Careers</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <div class="social-links-group">
+		<!-- 2. Hamburger Menu Button (Visible on Mobile Only) -->
+    <button class="mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+      <!-- 3. Navigation Links -->
+    <nav class="nav-links-wrapper" id="navLinksWrapper">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+		<!-- Social Icons inside mobile dropdown -->
+      <div class="mobile-social-links">
+        <a href="https://www.youtube.com/@SuccessShipping"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.instagram.com/success_shipping_chennai/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61581851585515"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/company/successshippingservices/"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </nav>
+      <!-- 4. Desktop Social Icons (Visible on Desktop Only) -->
+    <div class="desktop-social-links">
           <a href="https://www.youtube.com/@SuccessShipping" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://www.instagram.com/success_shipping_chennai/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://www.facebook.com/profile.php?id=61581851585515" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -306,6 +319,25 @@
     // Automatically listen for screen or device changes in real-time
     desktopQuery.addEventListener('change', handleDeviceChange);
   })();
+</script>
+	<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navWrapper = document.getElementById('navLinksWrapper');
+
+    if (menuBtn && navWrapper) {
+      menuBtn.addEventListener('click', () => {
+        navWrapper.classList.toggle('is-active');
+        
+        // Toggle icon between Hamburger (bars) and Close (X)
+        const icon = menuBtn.querySelector('i');
+        if (icon) {
+          icon.classList.toggle('fa-bars');
+          icon.classList.toggle('fa-xmark');
+        }
+      });
+    }
+  });
 </script>
 </body>
 </html>
