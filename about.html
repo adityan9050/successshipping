@@ -691,6 +691,35 @@
       </div>
     </div>
   </footer>
+<script>
+  (function () {
+    // Automatically detect desktop vs mobile screen width
+    const desktopQuery = window.matchMedia('(min-width: 992px)');
 
+    function handleDeviceChange(e) {
+      const navContainer = document.querySelector('.navbar-collapse') 
+                        || document.querySelector('.nav-menu-wrapper') 
+                        || document.querySelector('header nav');
+
+      if (!navContainer) return;
+
+      if (e.matches) {
+        // Desktop detected: clear mobile classes automatically
+        navContainer.classList.remove('mobile-view', 'is-open');
+        navContainer.classList.add('desktop-view');
+      } else {
+        // Mobile device detected: activate mobile behavior automatically
+        navContainer.classList.remove('desktop-view');
+        navContainer.classList.add('mobile-view');
+      }
+    }
+
+    // Run automatic check on initial page load
+    handleDeviceChange(desktopQuery);
+
+    // Automatically listen for screen or device changes in real-time
+    desktopQuery.addEventListener('change', handleDeviceChange);
+  })();
+</script>
 </body>
 </html>
