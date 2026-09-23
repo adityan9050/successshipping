@@ -1,0 +1,468 @@
+/* ==========================================================================
+   ABOUT PAGE & SECTION TAG STYLING
+   ========================================================================== */
+
+/* Orange Tag with Dash Line */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--brand-orange);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--brand-orange);
+}
+
+.breadcrumb-nav {
+  font-size: 0.85rem;
+  color: #999999;
+  margin-bottom: 1.5rem;
+}
+
+/* Who We Are Split Grid & Stats */
+.who-we-are-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.stats-counter-row {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+
+.stat-block h4 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--brand-orange);
+  font-family: var(--font-heading), sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.stat-block p {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.about-ship-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* Why Choose Us Section & 6 Card Grid */
+.why-choose-section {
+  padding: 5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.feature-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: #FFFFFF;
+  border: 1px solid #ECECEC;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .who-we-are-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .feature-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* LEADERSHIP / DIRECTORS SECTION */
+.directors-section {
+  background-color: #FAF8F5; /* Warm off-white section background */
+  padding: 5rem 0;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.subtitle-orange {
+  color: #EE5D2B;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle-orange::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background-color: #EE5D2B;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0A0C0E;
+  letter-spacing: -0.02em;
+}
+
+/* 3-COLUMN GRID */
+.directors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.director-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.director-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* CIRCULAR PHOTO CONTAINER */
+.director-img-wrapper {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 4px solid #FDF0EB; /* Faint orange border ring */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.director-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.director-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.director-role {
+  color: #EE5D2B;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.director-bio {
+  font-size: 0.88rem;
+  color: #6B7280;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE LAYOUT FOR TABLETS & MOBILE */
+@media (max-width: 992px) {
+  .directors-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================================
+   HIGH-RES IMAGE SMOOTH DOWNSAMPLING & SUBPIXEL FIX
+   ========================================================================== */
+
+/* 1. Reset card image wrapper to strict dimensions */
+.service-card-img,
+.card-img-wrapper,
+.feature-card-img {
+  width: 100%;
+  height: 200px; /* Fixed card image height */
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: #F3F4F6;
+  /* Prevents subpixel fractional rendering bugs in Grid/Flexbox */
+  transform: translateZ(0); 
+}
+
+/* 2. Smooth scaling fix for High-Res source photos */
+.service-card-img img,
+.card-img-wrapper img,
+.feature-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+
+  /* FORCES SMOOTH BROWSER DOWNSAMPLING (Fixes jagged pixelated edges) */
+  image-rendering: auto;
+  image-rendering: smooth;
+  
+  /* Enables GPU hardware acceleration for clean rendering */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* 3. Fix fractional width rounding in 3-column CSS grid */
+.services-grid,
+.feature-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* ==========================================================================
+   TRANSPARENT NAVIGATION HEADER (ALL PAGES)
+   ========================================================================== */
+header.site-header, 
+header.hero-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  backdrop-filter: blur(3px); /* Blurs content passing behind header */
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* 2. Adjust hero section padding so content isn't covered by the header */
+.hero {
+  padding-top: 100px !important; /* Space for the floating header */
+}
+
+/* 3. Ensure menu links & text are crisp and white */
+nav.main-nav a, 
+.nav-menu a {
+  color: #FFFFFF !important;
+}
+
+nav.main-nav a.active, 
+.nav-menu a.active {
+  color: #EE5D2B !important;
+}
+
+/* Container Flex Layout */
+.nav-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+/* Menu List Reset & Horizontal Alignment */
+nav ul.nav-menu {
+  display: flex !important;
+  align-items: center;
+  gap: 2.25rem;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+nav ul.nav-menu li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Force Navigation Links to White */
+header.site-header nav ul.nav-menu a,
+header.hero-header nav ul.nav-menu a {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+header nav ul.nav-menu a:hover,
+header nav ul.nav-menu a.active {
+  color: #e85a2a !important;
+  font-weight: 700;
+}
+
+/* Right-Side Action Area (Social Icons + CTA Button) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.social-links-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease;
+}
+
+.social-icon-btn:hover {
+  background-color: #e85a2a !important;
+  color: #ffffff !important;
+}
+
+/* Quote Button Styling */
+.btn-quote {
+  background-color: #e85a2a;
+  color: #ffffff !important;
+  padding: 0.6rem 1.3rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.btn-quote:hover {
+  background-color: #d0491c;
+}
+
+/* ==========================================================================
+   SUBPAGE TOP HERO BANNER
+   ========================================================================== */
+./* Shared Hero Banner Base */
+.page-hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;       /* Pushes header text towards the bottom */
+  justify-content: center;     /* Centers text horizontally */
+  padding-bottom: 4rem;        /* Space between text and bottom edge */
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Page-Specific Backgrounds with Dark Overlay */
+.hero-about {
+  background-image: linear-gradient(rgba(20, 25, 30, 0.75), rgba(20, 25, 30, 0.75)), 
+                    url('images/about-hero.jpg');
+}
+
+.hero-services {
+  background-image: linear-gradient(rgba(20, 25, 30, 0.75), rgba(20, 25, 30, 0.75)), 
+                    url('images/services-hero.jpg');
+}
+
+.hero-contact {
+  background-image: linear-gradient(rgba(20, 25, 30, 0.75), rgba(20, 25, 30, 0.75)), 
+                    url('images/contact-hero.jpg');
+}
+
+.subpage-hero .breadcrumb {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.subpage-hero .page-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #D84C1C;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+/* Remove header bottom border on Services & Contact pages */
+header.no-border {
+  border-bottom: none !important;
+}
+footer, footer.site-footer { 
+  background-color: var(--brand-dark); 
+  color: #FFFFFF; 
+  padding: 4rem 0 2rem; 
+}

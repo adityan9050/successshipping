@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success Shipping Services | Global Breakbulk & RoRo Partner</title>
+  <meta name="description" content="Nearly three decades of deep-rooted expertise in Breakbulk, RORO, Stevedoring, and Project Cargo logistics.">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-orange: #E85A2A;
+      --brand-dark: #0D0F12;
+      --bg-cream: #FAF6F0;
+      --text-dark: #1A1A1A;
+      --text-muted: #666666;
+      --border-light: #EBEBEB;
+      --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-heading); background-color: #FFFFFF; color: var(--text-dark); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+    .site-logo {
+      height: 55px !important;
+      max-height: 55px !important;
+      width: auto !important;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* HERO CAROUSEL CONTAINER */
+    .hero-carousel-wrapper {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: #0A0C0E;
+    }
+
+    .carousel-slides-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+    .carousel-slide {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-size: cover; background-position: center; opacity: 0;
+      transition: opacity 1.2s ease-in-out, transform 6s ease-out; transform: scale(1);
+    }
+    .carousel-slide.active { opacity: 1; transform: scale(1.04); }
+
+    .hero-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.7) 100%),
+                  linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%);
+      z-index: 2;
+    }
+
+    .hero-content { position: relative; z-index: 3; max-width: 820px; text-align: center; padding: 7rem 1.5rem 3rem; color: #FFFFFF; }
+    .hero-badge-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px); padding: 0.4rem 1.25rem; border-radius: 50px; font-size: 0.72rem; font-weight: 800;
+      letter-spacing: 0.12em; color: #111111; text-transform: uppercase; margin-bottom: 1.75rem;
+    }
+    .hero-badge-pill::before { content: ''; display: inline-block; width: 14px; height: 2px; background-color: var(--brand-orange); }
+
+    .hero-title { font-size: 3.25rem; font-weight: 800; line-height: 1.15; color: #FFFFFF; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+    .hero-subtitle { font-size: 1rem; color: rgba(255, 255, 255, 0.88); line-height: 1.7; max-width: 680px; margin: 0 auto 2.25rem; }
+
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; align-items: center; }
+    .btn-pill-orange {
+      background-color: var(--brand-orange); color: #FFFFFF; padding: 0.8rem 2rem; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: all 0.2s ease;
+    }
+    .btn-pill-orange:hover { background-color: #d44c1f; transform: translateY(-2px); }
+    .btn-pill-outline {
+      background-color: rgba(0, 0, 0, 0.25); border: 1px solid rgba(255, 255, 255, 0.5); backdrop-filter: blur(6px);
+      color: #FFFFFF; padding: 0.8rem 2rem; border-radius: 50px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s ease;
+    }
+    .btn-pill-outline:hover { background-color: rgba(255, 255, 255, 0.2); border-color: #FFFFFF; transform: translateY(-2px); }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .card { background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+
+    /* FOOTER STYLING */
+    footer { background-color: var(--brand-dark); color: #FFFFFF; padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 2.5rem; margin-bottom: 3rem; }
+    .footer-col h4 { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-orange); margin-bottom: 1.25rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-col ul a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--brand-orange); }
+
+    .social-icon-circle {
+      width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px); color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; text-decoration: none; transition: all 0.2s ease;
+    }
+    .social-icon-circle:hover { background: var(--brand-orange); transform: translateY(-2px); }
+
+    @media (max-width: 992px) {
+      .hero-title { font-size: 2.25rem; }
+      .grid-3, .footer-grid { grid-template-columns: 1fr; }
+      header.hero-header nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="hero-header no-border">
+    <div class="nav-wrapper">
+      <a href="index.html">
+        <img src="logo-white.png" alt="Success Shipping Services" class="site-logo">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+	  <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <div class="social-links-group">
+          <a href="https://www.youtube.com/@SuccessShipping" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.instagram.com/success_shipping_chennai/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61581851585515" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/company/successshippingservices/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <a href="contact.html" class="btn-quote">GET A QUOTE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO CAROUSEL SECTION -->
+  <div class="hero-carousel-wrapper">
+    <div class="carousel-slides-container" id="heroCarousel">
+      <div class="carousel-slide active" style="background-image: url('images/1.jpg');"></div>
+      <div class="carousel-slide" style="background-image: url('images/2.jpg');"></div>
+      <div class="carousel-slide" style="background-image: url('images/3.jpg');"></div>
+      <div class="carousel-slide" style="background-image: url('images/4.jpg');"></div>
+      <div class="carousel-slide" style="background-image: url('images/5.jpg');"></div>
+      <div class="carousel-slide" style="background-image: url('images/6.jpg');"></div>
+      <div class="carousel-slide" style="background-image: url('images/7.jpg');"></div>
+      <div class="carousel-slide" style="background-image: url('images/8.jpg');"></div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-title">Your Global Breakbulk &amp; RoRo Partner</h1>
+      <p class="hero-subtitle">Nearly three decades of deep-rooted expertise in Breakbulk, RORO, Stevedoring, and Project Cargo logistics—backed by technology-driven tracking and a relentless focus on safety.</p>
+      <div class="hero-actions">
+        <a href="services.html" class="btn-pill-orange">EXPLORE SERVICES</a>
+        <a href="contact.html" class="btn-pill-outline">GET A QUOTE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- METRICS BAR -->
+  <section style="border-bottom: 1px solid var(--border-light); background: var(--bg-cream); padding: 3rem 0;">
+    <div class="container" style="display: flex; justify-content: space-around; text-align: center; align-items: center;">
+      <div>
+        <h2 style="font-size: 2.5rem; color: var(--brand-orange); font-weight: 800;">6.5M+</h2>
+        <p style="font-size: 0.8rem; color: var(--text-dark); font-weight: 700; text-transform: uppercase;">Cars &amp; Vehicles Handled</p>
+      </div>
+      <div style="border-right: 1px solid var(--border-light); height: 45px;"></div>
+      <div>
+        <h2 style="font-size: 2.5rem; color: var(--brand-orange); font-weight: 800;">65M</h2>
+        <p style="font-size: 0.8rem; color: var(--text-dark); font-weight: 700; text-transform: uppercase;">Freight Tons Handled</p>
+      </div>
+      <div style="border-right: 1px solid var(--border-light); height: 45px;"></div>
+      <div>
+        <h2 style="font-size: 2.5rem; color: var(--brand-orange); font-weight: 800;">672+</h2>
+        <p style="font-size: 0.8rem; color: var(--text-dark); font-weight: 700; text-transform: uppercase;">Clients Worldwide</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section style="padding: 5rem 0;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem;">
+        <div>
+          <span style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; color: var(--brand-orange); font-weight: 700;">Core Capabilities</span>
+          <h2 style="font-size: 2.25rem; font-family: var(--font-heading); color: var(--text-dark); margin-top: 0.25rem; font-weight: 700;">End-to-End Shipping Solutions</h2>
+        </div>
+        <a href="services.html" style="text-decoration: none; font-size: 0.9rem; font-weight: 700; color: var(--brand-orange);">View All Services &rarr;</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="font-size: 1.3rem; font-weight: 700;">RORO Operations</h3>
+          <p style="color: var(--text-muted); margin: 0.75rem 0 1.25rem; font-size: 0.92rem;">Operations backed by 6.5 million+ vehicle moves across India's major ports.</p>
+          <a href="contact.html?service=RORO+Vessel+Operations" style="text-decoration: none; font-size: 0.82rem; font-weight: 700; color: var(--brand-orange);">Get Quote &rarr;</a>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.3rem; font-weight: 700;">Breakbulk &amp; Project Cargo</h3>
+          <p style="color: var(--text-muted); margin: 0.75rem 0 1.25rem; font-size: 0.92rem;">Specialists in oversized, heavy-lift, and non-containerized cargo that doesn't fit standard containers.</p>
+          <a href="contact.html?service=Breakbulk+%26+Project+Cargo+Handling" style="text-decoration: none; font-size: 0.82rem; font-weight: 700; color: var(--brand-orange);">Get Quote &rarr;</a>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.3rem; font-weight: 700;">Stevedoring Services</h3>
+          <p style="color: var(--text-muted); margin: 0.75rem 0 1.25rem; font-size: 0.92rem;">Precision-driven vessel handling across RORO, Breakbulk, and ROCon vessels.</p>
+          <a href="contact.html?service=Stevedoring+Services" style="text-decoration: none; font-size: 0.82rem; font-weight: 700; color: var(--brand-orange);">Get Quote &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITE FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="logo-white.png" alt="Success Shipping Services" class="site-logo" style="margin-bottom: 1.25rem;">
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Nearly three decades of precision, care, and problem-solving in Breakbulk, RORO, and Project Cargo logistics across India.
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <a href="https://www.youtube.com/@SuccessShipping" target="_blank" rel="noopener noreferrer" class="social-icon-circle" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/success_shipping_chennai/" target="_blank" rel="noopener noreferrer" class="social-icon-circle" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61581851585515" target="_blank" rel="noopener noreferrer" class="social-icon-circle" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/successshippingservices/" target="_blank" rel="noopener noreferrer" class="social-icon-circle" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">RORO Operations</a></li>
+            <li><a href="services.html">Breakbulk Cargo</a></li>
+            <li><a href="services.html">Stevedoring</a></li>
+            <li><a href="services.html">Customs Clearance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Headquarters</h4>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            40, Bluesea Lord, 4th Floor, Rajaji Salai, Chennai - 600001, TN, India
+          </p>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-bottom: 0.3rem;"><strong>Phone:</strong> 04446415742</p>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem;"><strong>Email:</strong> connect@successshipping.in</p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.8rem;">
+        &copy; 2026 Success Shipping Services (Chennai) Pvt Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll(".carousel-slide");
+      let currentSlide = 0;
+      if (slides.length > 0) {
+        setInterval(() => {
+          slides[currentSlide].classList.remove("active");
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add("active");
+        }, 4000);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Success Shipping Services</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-orange: #E85A2A;
+      --brand-dark: #0D0F12;
+      --bg-cream: #FAF6F0;
+      --text-dark: #1A1A1A;
+      --text-muted: #666666;
+      --border-light: #EBEBEB;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-heading); background-color: #FFFFFF; color: var(--text-dark); line-height: 1.6; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+    .site-logo { height: 55px !important; width: auto !important; display: block; object-fit: contain; }
+
+    header.nav-header { background-color: var(--brand-dark); padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    header.nav-header .nav-wrapper { display: flex; align-items: center; justify-content: space-between; }
+    header.nav-header nav ul { display: flex; gap: 2rem; list-style: none; }
+    header.nav-header nav a { color: #FFFFFF; text-decoration: none; font-size: 0.88rem; opacity: 0.85; transition: 0.2s; }
+    header.nav-header nav a:hover, header.nav-header nav a.active { opacity: 1; color: var(--brand-orange); font-weight: 700; }
+
+    .social-icon-circle {
+      width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; text-decoration: none;
+    }
+
+    .btn-pill-orange {
+      background-color: var(--brand-orange); color: #FFFFFF; padding: 0.7rem 1.8rem; border-radius: 50px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; text-decoration: none;
+    }
+
+    .page-banner { background: var(--brand-dark); color: #FFFFFF; padding: 4rem 0; text-align: center; }
+    .page-banner span { color: var(--brand-orange); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+    .page-banner h1 { font-size: 2.75rem; font-weight: 800; margin-top: 0.5rem; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    .card { background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+
+    footer { background-color: var(--brand-dark); color: #FFFFFF; padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 2.5rem; margin-bottom: 3rem; }
+    .footer-col h4 { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; color: var(--brand-orange); margin-bottom: 1.25rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-col ul a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.88rem; }
+
+    @media (max-width: 992px) {
+      .grid-2, .grid-3, .footer-grid { grid-template-columns: 1fr; }
+      header.nav-header nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header no-border">
+  <div class="nav-wrapper">
+    <a href="index.html">
+      <img src="logo-orange.png" alt="Success Shipping Services" class="site-logo">
+    </a>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+	<li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="social-links-group">
+        <a href="https://www.youtube.com/@SuccessShipping" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.instagram.com/success_shipping_chennai/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61581851585515" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/successshippingservices/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <a href="contact.html" class="btn-quote">GET A QUOTE</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" style="background-image: linear-gradient(rgba(20, 25, 30, 0.75), rgba(20, 25, 30, 0.75)), url(images/about-hero.jpg); background-size: cover; background-position: center bottom; min-height: 60vh; 
+  display: flex; 
+  align-items: flex-end; 
+  justify-content: center; 
+  padding-bottom: 18rem; 
+  color: #ffffff; 
+  text-align: center;">
+  <h1 style="color: #D84C1C;">OUR STORY</h1>
+</section>
+
+  <section style="padding: 5rem 0;">
+<div class="container text-center" style="text-align: center;">
+<h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 4rem;">Who We Are</h2>
+    <div class="container grid-2">
+      <div>
+        
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Success Shipping Services (Chennai) Pvt Ltd combines deep-rooted expertise with forward-thinking solutions. Our team brings nearly three decades of precision, care, and problem-solving to every move — backed by innovative SOPs, technology-driven tracking, and a relentless focus on safety.</p>
+        <p style="color: var(--text-muted);">From breakbulk and project cargo to RORO vessel operations, stevedoring, and customs clearance, we've grown into a trusted partner for 672+ clients worldwide.</p>
+      </div>
+      <div>
+        <img src="images/1.jpg" alt="Success Shipping RORO Vessel Operations" style="width: 100%; border-radius: 12px; object-fit: center; max-height: 380px;">
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--bg-cream); padding: 4rem 0;">
+    <div class="container text-center" style="text-align: center;">
+            <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 3rem;">What Sets Success Shipping Apart</h2>
+      
+      <div class="grid-3" style="text-align: left;">
+        <div class="card">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Close to 30 Years of Expertise</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Deep-rooted experience in Breakbulk, RORO, Stevedoring, and Project Cargo logistics across India's major ports.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">672+ Clients Worldwide</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">A trusted partner to a global client base built on consistent, on-time delivery.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">6.5M+ Vehicles Handled</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Proven RORO capability across passenger cars, trucks, buses, and heavy machinery.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">15,000+ Mafi Trailer Operations</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Deep operational familiarity with RORO staging, lashing, and securing procedures.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Project Herby Initiative</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">A continuous-improvement program that analyzes every operational bottleneck to deliver faster stevedoring.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Technology-Driven Tracking</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Innovative SOPs and tech-backed tracking for full cargo visibility and safety-first planning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- MEET THE DIRECTORS SECTION -->
+<section class="directors-section">
+  <div class="directors-container">
+    
+    <div class="directors-header">
+      <div class="directors-tag">LEADERSHIP</div>
+      <h2 class="directors-title">Meet the Directors</h2>
+    </div>
+
+    <div class="directors-grid">
+      <!-- Director 1 -->
+      <div class="director-card">
+        <div class="director-avatar">
+          <img src="Directors - About/rajendra-naidu.jpg" alt="Rajendra Naidu G" loading="lazy" decoding="async">
+        </div>
+        <h3 class="director-name">Rajendra Naidu G</h3>
+        <div class="director-role">MANAGING DIRECTOR</div>
+        <p class="director-bio">
+          Leads Success Shipping's overall strategy and operations, drawing on close to three decades of hands-on experience in breakbulk, RORO, and project cargo logistics across India's ports.
+        </p>
+      </div>
+
+      <!-- Director 2 -->
+      <div class="director-card">
+        <div class="director-avatar">
+          <img src="Directors - About/rupert.jpg" alt="Rupert" loading="lazy" decoding="async">
+        </div>
+        <h3 class="director-name">Rupert</h3>
+        <div class="director-role">DIRECTOR</div>
+        <p class="director-bio">
+          Oversees client relationships and operational delivery, ensuring every shipment — from routine container moves to complex heavy-lift projects — is executed safely and on schedule.
+        </p>
+      </div>
+
+      <!-- Director 3 -->
+      <div class="director-card">
+        <div class="director-avatar">
+          <img src="Directors - About/sai-krishna.jpg" alt="Sai Krishna GR" loading="lazy" decoding="async">
+        </div>
+        <h3 class="director-name">Sai Krishna GR</h3>
+        <div class="director-role">DIRECTOR</div>
+        <p class="director-bio">
+          Drives process improvement and technology-led tracking across Success Shipping's port operations, including the Project Herby Initiative for stevedoring efficiency.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* DIRECTORS SECTION STYLES */
+  .directors-section {
+    background-color: #FAF6F0; /* Warm beige background */
+    padding: 80px 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .directors-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .directors-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .directors-tag {
+    color: #EE5D2B;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .directors-tag::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: #EE5D2B;
+  }
+
+  .directors-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  /* 3-COLUMN GRID */
+  .directors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .director-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 44px 32px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .director-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  /* CIRCULAR IMAGE WITH PEACH BORDER RING */
+  .director-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 4px solid #FDE8E1; /* Faint peach/orange border ring */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  }
+
+  .director-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .director-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin: 0 0 6px 0;
+  }
+
+  .director-role {
+    color: #EE5D2B;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .director-bio {
+    font-size: 0.9rem;
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* MOBILE & TABLET LAYOUT */
+  @media (max-width: 992px) {
+    .directors-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  }
+</style>
+
+<!-- TEAM CAROUSEL SECTION -->
+<section class="team-carousel-section">
+  <div class="container">
+    
+    <!-- MATCHING HEADER (ORANGE DASH + TITLE) -->
+    <div class="section-header-center">
+      <div class="subtitle-orange">OPERATIONAL EXCELLENCE</div>
+      <h2 class="section-title">Meet the Team</h2>
+    </div>
+
+    <!-- CAROUSEL WRAPPER -->
+    <div class="team-carousel-container" id="carouselContainer">
+      
+      <button class="carousel-nav-btn prev-btn" id="teamPrevBtn" aria-label="Previous Slide">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-slides-track" id="teamSlidesTrack">
+          
+          <!-- Slide 1 -->
+          <div class="team-slide">
+            <div class="slide-img-box">
+              <img src="images/Team 1.jpg" alt="SOP-Driven Execution" loading="lazy" decoding="async">
+            </div>
+            <div class="slide-text-content">
+              <h3 class="slide-title">SOP-Driven Execution</h3>
+              <p class="slide-description">
+                Standardized operational workflows and pre-planned checklists ensure precision across breakbulk, RORO, and project cargo movements.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="team-slide">
+            <div class="slide-img-box">
+              <img src="images/Team 2.jpg" alt="Strict Safety & Compliance" loading="lazy" decoding="async">
+            </div>
+            <div class="slide-text-content">
+              <h3 class="slide-title">Strict Safety & Compliance</h3>
+              <p class="slide-description">
+                Mandatory daily safety toolboxes, high-vis compliance, and zero-incident protocols enforced at every dock and vessel site.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="team-slide">
+            <div class="slide-img-box">
+              <img src="images/Team 3.jpg" alt="Specialized Cargo Protocols" loading="lazy" decoding="async">
+            </div>
+            <div class="slide-text-content">
+              <h3 class="slide-title">Specialized Cargo Protocols</h3>
+              <p class="slide-description">
+                Fully certified personnel equipped with specialized PPE and technical gear for hazardous, delicate, and high-risk cargo handling.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="team-slide">
+            <div class="slide-img-box">
+              <img src="images/Team 4.jpg" alt="On-Site Field Command" loading="lazy" decoding="async">
+            </div>
+            <div class="slide-text-content">
+              <h3 class="slide-title">On-Site Field Command</h3>
+              <p class="slide-description">
+                Hands-on port supervisors and coordinators maintaining continuous live communication from pre-berthing to final discharge.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="carousel-nav-btn next-btn" id="teamNextBtn" aria-label="Next Slide">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+    </div>
+
+    <!-- CAROUSEL DOTS INDICATOR -->
+    <div class="carousel-dots-container" id="teamDotsContainer">
+      <span class="dot-indicator active" data-index="0"></span>
+      <span class="dot-indicator" data-index="1"></span>
+      <span class="dot-indicator" data-index="2"></span>
+      <span class="dot-indicator" data-index="3"></span>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* SECTION BACKGROUND & HEADER MATCHING DIRECTORS SYSTEM */
+  .team-carousel-section {
+    background-color: #FAF8F5; /* Matches Directors section warm background */
+    padding: 5rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .section-header-center {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .subtitle-orange {
+    color: #EE5D2B;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle-orange::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    background-color: #EE5D2B;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0A0C0E;
+    letter-spacing: -0.02em;
+  }
+
+  /* CAROUSEL CONTAINER */
+  .team-carousel-container {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .carousel-slides-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+  }
+
+  .team-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide-img-box {
+    width: 100%;
+    height: 520px;
+    background-color: #EFECE6;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  }
+
+  .slide-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .slide-text-content {
+    padding: 1.25rem 0.25rem 0;
+    text-align: left;
+  }
+
+  .slide-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0A0C0E;
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.01em;
+  }
+
+  .slide-description {
+    font-size: 0.9rem;
+    color: #6B7280;
+    line-height: 1.55;
+  }
+
+  /* NAVIGATION BUTTONS */
+  .carousel-nav-btn {
+    position: absolute;
+    top: 240px;
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    color: #0A0C0E;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+
+  .carousel-nav-btn:hover {
+    background-color: #EE5D2B;
+    color: #FFFFFF;
+    border-color: #EE5D2B;
+  }
+
+  .prev-btn { left: -22px; }
+  .next-btn { right: -22px; }
+
+  /* DOTS INDICATOR */
+  .carousel-dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+  }
+
+  .dot-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #D1D5DB;
+    cursor: pointer;
+    transition: background-color 0.25s ease, width 0.25s ease;
+  }
+
+  .dot-indicator.active {
+    background-color: #EE5D2B;
+    width: 24px;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .slide-img-box { height: 340px; }
+    .carousel-nav-btn { top: 150px; }
+    .prev-btn { left: 8px; }
+    .next-btn { right: 8px; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const track = document.getElementById('teamSlidesTrack');
+    const slides = document.querySelectorAll('.team-slide');
+    const prevBtn = document.getElementById('teamPrevBtn');
+    const nextBtn = document.getElementById('teamNextBtn');
+    const dots = document.querySelectorAll('.dot-indicator');
+    const container = document.getElementById('carouselContainer');
+    
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoPlayTimer = null;
+
+    function updateCarousel(index) {
+      // Infinite Loop Wrapping logic
+      if (index < 0) {
+        currentIndex = totalSlides - 1;
+      } else if (index >= totalSlides) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+      
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayTimer = setInterval(() => {
+        updateCarousel(currentIndex + 1);
+      }, 4000); // Transitions every 4 seconds
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) clearInterval(autoPlayTimer);
+    }
+
+    // Manual controls reset timer
+    prevBtn.addEventListener('click', () => {
+      updateCarousel(currentIndex - 1);
+      startAutoPlay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      updateCarousel(currentIndex + 1);
+      startAutoPlay();
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', function () {
+        const slideIdx = parseInt(this.getAttribute('data-index'));
+        updateCarousel(slideIdx);
+        startAutoPlay();
+      });
+    });
+
+    // Pause autoplay on hover for easier reading
+    container.addEventListener('mouseenter', stopAutoPlay);
+    container.addEventListener('mouseleave', startAutoPlay);
+
+    // Initialize infinite loop
+    startAutoPlay();
+  });
+</script>
+
+<!-- SITE FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="logo-white.png" alt="Success Shipping Services" class="site-logo" style="margin-bottom: 1.25rem;">
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Nearly three decades of precision, care, and problem-solving in Breakbulk, RORO, and Project Cargo logistics across India.
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <a href="https://www.youtube.com/@SuccessShipping" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/success_shipping_chennai/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61581851585515" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/successshippingservices/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">RORO Operations</a></li>
+            <li><a href="services.html">Breakbulk Cargo</a></li>
+            <li><a href="services.html">Stevedoring</a></li>
+            <li><a href="services.html">Customs Clearance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Headquarters</h4>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            40, Bluesea Lord, 4th Floor, Rajaji Salai, Chennai - 600001, TN, India
+          </p>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-bottom: 0.3rem;"><strong>Phone:</strong> 04446415742</p>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem;"><strong>Email:</strong> connect@successshipping.in</p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.8rem;">
+        &copy; 2026 Success Shipping Services (Chennai) Pvt Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
