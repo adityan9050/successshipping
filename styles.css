@@ -466,3 +466,8 @@ footer, footer.site-footer {
   color: #FFFFFF; 
   padding: 4rem 0 2rem; 
 }
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
