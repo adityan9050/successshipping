@@ -484,6 +484,18 @@
       .prev-btn { left: 8px; }
       .next-btn { right: 8px; }
     }
+    /* DESKTOP-ONLY SCROLL EFFECT */
+@media (min-width: 992px) {
+  header.nav-header {
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  header.nav-header.scrolled {
+    background-color: var(--brand-dark); /* Changes to the dark background */
+    padding: 0.75rem 0; /* Shrinks slightly */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+}
   </style>
 </head>
 <body>
@@ -855,6 +867,35 @@
         startAutoPlay();
       }
     });
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navWrapper = document.getElementById('navLinksWrapper');
+
+    if (menuBtn && navWrapper) {
+      menuBtn.addEventListener('click', () => {
+        navWrapper.classList.toggle('is-active');
+        const icon = menuBtn.querySelector('i');
+        if (icon) {
+          icon.classList.toggle('fa-bars');
+          icon.classList.toggle('fa-xmark');
+        }
+      });
+    }
+
+    // Scroll Detection for Sticky Header
+    const header = document.querySelector('.nav-header');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  });
+</script>
   </script>
 </body>
 </html>
