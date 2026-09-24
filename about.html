@@ -570,9 +570,7 @@
         </div>
         <div>
           <div>
-          <div style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; max-height: 380px;">
-            <video id="aboutVideo1" autoplay muted playsinline style="width: 100%; max-height: 380px; object-fit: cover; display: block; position: relative; z-index: 2; opacity: 1; transition: opacity 0.2s ease;"></video>
-            <video id="aboutVideo2" muted playsinline style="width: 100%; max-height: 380px; object-fit: cover; display: block; position: absolute; top: 0; left: 0; z-index: 1; opacity: 0; transition: opacity 0.2s ease;"></video>
+          <video id="aboutVideoPlaylist" autoplay muted playsinline style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 380px; display: block;"></video>
           </div>
         </div>
         </div>
@@ -815,68 +813,40 @@
       });
     }
 
-    // 3. Dual-Video Seamless Playlist Loop (Zero Delay)
-    const v1 = document.getElementById('aboutVideo1');
-    const v2 = document.getElementById('aboutVideo2');
+    // 3. Optimized Mobile-Safe Video Playlist
+    const videoElement = document.getElementById('aboutVideoPlaylist');
     
     const videoList = [
-      { webm: '01 Port Drone.webm', mp4: '01 Port Drone.mp4' },
-      { webm: '02 Anchaneyar.webm', mp4: '02 Anchaneyar.mp4' },
-      { webm: '03 Wind Mill.webm', mp4: '03 Wind Mill.mp4' },
-      { webm: '04 Bucket & truck.webm', mp4: '04 Bucket & truck.mp4' },
-      { webm: '05 Car Loading.webm', mp4: '05 Car Loading.mp4' }
+      '01 Port Drone.mp4',
+      '02 Anchaneyar.mp4',
+      '03 Wind Mill.mp4',
+      '04 Bucket & truck.mp4',
+      '05 Car Loading.mp4'
     ];
+    
+    let currentVideoIndex = 0;
 
-    if (v1 && v2) {
-      let currentIndex = 0;
-      let activeVideo = v1;
-      let hiddenVideo = v2;
+    if (videoElement) {
+      // Force inline muted properties via JS (required for mobile autoplay)
+      videoElement.muted = true;
+      videoElement.defaultMuted = true;
+      videoElement.playsInline = true;
+      videoElement.setAttribute('playsinline', '');
 
-      function loadSources(videoElem, item) {
-        videoElem.innerHTML = `
-          <source src="${item.webm}" type="video/webm">
-          <source src="${item.mp4}" type="video/mp4">
-        `;
-        videoElem.load();
-      }
+      // Load initial video
+      videoElement.src = videoList[0];
+      videoElement.play().catch(function(e) {
+        console.log("Autoplay handled:", e);
+      });
 
-      // Initialize initial and background videos
-      loadSources(activeVideo, videoList[0]);
-      activeVideo.play();
-
-      loadSources(hiddenVideo, videoList[1]);
-
-      function setupEndedListener(vElem) {
-        vElem.onended = function () {
-          const nextIndex = (currentIndex + 1) % videoList.length;
-          const upcomingIndex = (nextIndex + 1) % videoList.length;
-
-          // Immediately play preloaded video
-          hiddenVideo.play();
-
-          // Swap visibility layering
-          hiddenVideo.style.zIndex = '2';
-          hiddenVideo.style.opacity = '1';
-          activeVideo.style.zIndex = '1';
-          activeVideo.style.opacity = '0';
-
-          // Swap active references
-          const temp = activeVideo;
-          activeVideo = hiddenVideo;
-          hiddenVideo = temp;
-          currentIndex = nextIndex;
-
-          // Attach listener to the new active video
-          setupEndedListener(activeVideo);
-
-          // Preload the next upcoming video into hidden element
-          setTimeout(() => {
-            loadSources(hiddenVideo, videoList[upcomingIndex]);
-          }, 300);
-        };
-      }
-
-      setupEndedListener(activeVideo);
+      // Play next video seamlessly when current one ends
+      videoElement.addEventListener('ended', function () {
+        currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+        videoElement.src = videoList[currentVideoIndex];
+        videoElement.play().catch(function(e) {
+          console.log("Playback error:", e);
+        });
+      });
     }
 
     // 4. Team Carousel Logic
