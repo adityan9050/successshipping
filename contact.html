@@ -41,17 +41,17 @@
       object-fit: contain;
     }
 
-    /* STICKY NAVIGATION HEADER */
-    header.nav-header {
-      background-color: transparent;
-      padding: 1rem 0;
-      border-bottom: none;
-      position: sticky;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+    /* ABSOLUTE TRANSPARENT HEADER */
+header.nav-header {
+  position: absolute; /* This overlays the header on top of the image */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  border-bottom: none;
+  padding: 1rem 0;
+}
 
     .nav-wrapper {
       display: flex !important;
@@ -332,9 +332,7 @@
     align-items: center; 
     justify-content: center; 
     color: #ffffff; 
-    text-align: center;"margin-top: -87px; /* Pulls the background image up behind the header */
-  padding-top: 87px; /* Keeps the text perfectly centered */
-">
+    text-align: center;>
     <h1 style="color: #D84C1C; font-size: 2.8rem; font-weight: 800;">Contact Us</h1>
   </section>
 
