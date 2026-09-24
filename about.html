@@ -569,7 +569,10 @@
           <p style="color: var(--text-muted);">From breakbulk and project cargo to RORO vessel operations, stevedoring, and customs clearance, we've grown into a trusted partner for 672+ clients worldwide.</p>
         </div>
         <div>
-          <img src="1.jpg" alt="Success Shipping RORO Vessel Operations" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 380px;" loading="lazy" decoding="async">
+          <video id="aboutVideoPlaylist" autoplay muted playsinline preload="metadata" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 380px;">
+  <source src="01 Port Drone.webm" type="video/webm">
+  <source src="01 Port Drone.mp4" type="video/mp4">
+</video>
         </div>
       </div>
     </div>
@@ -782,7 +785,7 @@
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // 1. Mobile Menu Toggle (Single instance)
+    // 1. Mobile Menu Toggle
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navWrapper = document.getElementById('navLinksWrapper');
 
@@ -810,7 +813,38 @@
       });
     }
 
-    // 3. Team Carousel Logic
+    // 3. Who We Are Video Playlist Loop
+    const videoElement = document.getElementById('aboutVideoPlaylist');
+    
+    const videoList = [
+      { webm: '01 Port Drone.webm', mp4: '01 Port Drone.mp4' },
+      { webm: '02 Anchaneyar.webm', mp4: '02 Anchaneyar.mp4' },
+      { webm: '03 Wind Mill.webm', mp4: '03 Wind Mill.mp4' },
+      { webm: '04 Bucket & truck.webm', mp4: '04 Bucket & truck.mp4' },
+      { webm: '05 Car Loading.webm', mp4: '05 Car Loading.mp4' }
+    ];
+    
+    let currentVideoIndex = 0;
+
+    if (videoElement) {
+      videoElement.addEventListener('ended', function () {
+        currentVideoIndex++;
+        
+        if (currentVideoIndex >= videoList.length) {
+          currentVideoIndex = 0;
+        }
+        
+        videoElement.innerHTML = `
+          <source src="${videoList[currentVideoIndex].webm}" type="video/webm">
+          <source src="${videoList[currentVideoIndex].mp4}" type="video/mp4">
+        `;
+        
+        videoElement.load();
+        videoElement.play();
+      });
+    }
+
+    // 4. Team Carousel Logic
     const track = document.getElementById('teamSlidesTrack');
     const slides = document.querySelectorAll('.team-slide');
     const prevBtn = document.getElementById('teamPrevBtn');
