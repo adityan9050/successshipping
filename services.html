@@ -629,25 +629,8 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuBtn = document.getElementById('mobileMenuBtn');
-      const navWrapper = document.getElementById('navLinksWrapper');
-
-      if (menuBtn && navWrapper) {
-        menuBtn.addEventListener('click', () => {
-          navWrapper.classList.toggle('is-active');
-          const icon = menuBtn.querySelector('i');
-          if (icon) {
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
-          }
-        });
-      }
-    });
-  </script>
-  <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Mobile Menu Toggle
+    // 1. Mobile Menu Toggle (Single instance)
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navWrapper = document.getElementById('navLinksWrapper');
 
@@ -662,16 +645,18 @@
       });
     }
 
-    // Scroll Detection for Sticky Header
+    // 2. Desktop Sticky Header Scroll Logic
     const header = document.querySelector('.nav-header');
     
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+    if (header) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
   });
 </script>
 </body>
