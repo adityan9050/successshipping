@@ -496,6 +496,96 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 }
+    <!-- Add this CSS inside your <style> tags in the <head> section -->
+<style>
+  /* 12-CARD INFINITE CAROUSEL STYLES */
+  .differentiator-carousel-section {
+    background-color: var(--bg-cream);
+    padding: 5rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .diff-section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    padding: 0 20px;
+  }
+
+  .diff-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* Soft gradient masks on the left and right edges for a professional fade effect */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .diff-carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    /* Adjust time (60s) to make it scroll faster or slower */
+    animation: infiniteScroll 60s linear infinite;
+    padding: 1rem 0;
+  }
+
+  .diff-carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes infiniteScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .diff-card {
+    width: 320px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 2.25rem 1.75rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .diff-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(238, 93, 43, 0.08);
+    border-color: rgba(238, 93, 43, 0.3);
+  }
+
+  .diff-card-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(238, 93, 43, 0.1);
+    color: var(--brand-orange);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .diff-card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .diff-card-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+</style>
   </style>
 </head>
 <body>
@@ -585,35 +675,162 @@
     </div>
   </section>
 
-  <!-- WHAT SETS US APART -->
-  <section style="background: var(--bg-cream); padding: 4rem 0;">
-    <div class="container text-center" style="text-align: center;">
-      <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 3rem;">What Sets Success Shipping Apart</h2>
-      <div class="grid-3" style="text-align: left;">
-        <div class="card">
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Close to 30 Years of Expertise</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Deep-rooted experience in Breakbulk, RORO, Stevedoring, and Project Cargo logistics across India's major ports.</p>
+  <!-- WHAT SETS US APART (12-CARD INFINITE CAROUSEL) -->
+  <section class="differentiator-carousel-section">
+    <div class="diff-section-header">
+      <div class="subtitle-orange">OPERATIONAL AUTHORITY</div>
+      <h2 class="section-title">Why 672+ Global Partners Trust Us</h2>
+    </div>
+
+    <div class="diff-carousel-wrapper">
+      <div class="diff-carousel-track">
+        
+        <!-- ================= ORIGINAL 12 CARDS ================= -->
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-ship"></i></div>
+          <h3 class="diff-card-title">30 Years of Mastery</h3>
+          <p class="diff-card-text">Close to three decades of maritime logistics authority and hands-on operational execution across India's major port terminals.</p>
         </div>
-        <div class="card">
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">672+ Clients Worldwide</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">A trusted partner to a global client base built on consistent, on-time delivery.</p>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-car"></i></div>
+          <h3 class="diff-card-title">6.5M+ Vehicles Handled</h3>
+          <p class="diff-card-text">Unmatched expertise in high-volume RORO operations, successfully discharging over 6.5 million commercial and passenger vehicles.</p>
         </div>
-        <div class="card">
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">6.5M+ Vehicles Handled</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Proven RORO capability across passenger cars, trucks, buses, and heavy machinery.</p>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+          <h3 class="diff-card-title">15,000+ Mafi Operations</h3>
+          <p class="diff-card-text">Specialized staging, lashing, and secure handling of heavy static cargo with over 15,000 flawless Mafi trailer transitions.</p>
         </div>
-        <div class="card">
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">15,000+ Mafi Trailer Operations</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Deep operational familiarity with RORO staging, lashing, and securing procedures.</p>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-earth-americas"></i></div>
+          <h3 class="diff-card-title">672+ Global Partners</h3>
+          <p class="diff-card-text">The trusted on-the-ground logistics backbone for over 672 international shipping lines, freight forwarders, and industrial OEMs.</p>
         </div>
-        <div class="card">
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Project Herby Initiative</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">A continuous-improvement program that analyzes every operational bottleneck to deliver faster stevedoring.</p>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-stopwatch"></i></div>
+          <h3 class="diff-card-title">Project Herby Initiative</h3>
+          <p class="diff-card-text">Our proprietary continuous-improvement framework dedicated to eliminating port bottlenecks and accelerating vessel turnaround time.</p>
         </div>
-        <div class="card">
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Technology-Driven Tracking</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Innovative SOPs and tech-backed tracking for full cargo visibility and safety-first planning.</p>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-crane"></i></div>
+          <h3 class="diff-card-title">Heavy-Lift & Project Cargo</h3>
+          <p class="diff-card-text">End-to-end management of oversized, high-value industrial assets leveraging precision engineering and specialized heavy rigging.</p>
         </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <h3 class="diff-card-title">Breakbulk Authority</h3>
+          <p class="diff-card-text">Seamless execution of non-containerized cargo loading, backed by certified lashers, riggers, and experienced dock supervisors.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-anchor"></i></div>
+          <h3 class="diff-card-title">Advanced Stevedoring</h3>
+          <p class="diff-card-text">Maximized hook cycles and efficient vessel-to-dock handling through highly trained labor and optimized mechanical deployments.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-hard-hat"></i></div>
+          <h3 class="diff-card-title">Zero-Incident Safety</h3>
+          <p class="diff-card-text">Mandatory daily safety toolboxes, high-vis compliance, and strict hazard mitigation protocols enforced at every operational site.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-file-signature"></i></div>
+          <h3 class="diff-card-title">Rapid Customs Clearance</h3>
+          <p class="diff-card-text">In-house regulatory expertise ensuring swift, fully compliant cargo release and uninterrupted supply chain continuity.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-walkie-talkie"></i></div>
+          <h3 class="diff-card-title">On-Site Field Command</h3>
+          <p class="diff-card-text">Real-time port coordination from pre-berthing preparations to final discharge, guaranteeing proactive operational control.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3 class="diff-card-title">Tech-Driven Tracking</h3>
+          <p class="diff-card-text">Digitized cargo visibility and modernized reporting pipelines that replace supply chain blind spots with absolute clarity.</p>
+        </div>
+
+        <!-- ================= DUPLICATE 12 CARDS FOR SEAMLESS LOOP ================= -->
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-ship"></i></div>
+          <h3 class="diff-card-title">30 Years of Mastery</h3>
+          <p class="diff-card-text">Close to three decades of maritime logistics authority and hands-on operational execution across India's major port terminals.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-car"></i></div>
+          <h3 class="diff-card-title">6.5M+ Vehicles Handled</h3>
+          <p class="diff-card-text">Unmatched expertise in high-volume RORO operations, successfully discharging over 6.5 million commercial and passenger vehicles.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+          <h3 class="diff-card-title">15,000+ Mafi Operations</h3>
+          <p class="diff-card-text">Specialized staging, lashing, and secure handling of heavy static cargo with over 15,000 flawless Mafi trailer transitions.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-earth-americas"></i></div>
+          <h3 class="diff-card-title">672+ Global Partners</h3>
+          <p class="diff-card-text">The trusted on-the-ground logistics backbone for over 672 international shipping lines, freight forwarders, and industrial OEMs.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-stopwatch"></i></div>
+          <h3 class="diff-card-title">Project Herby Initiative</h3>
+          <p class="diff-card-text">Our proprietary continuous-improvement framework dedicated to eliminating port bottlenecks and accelerating vessel turnaround time.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-crane"></i></div>
+          <h3 class="diff-card-title">Heavy-Lift & Project Cargo</h3>
+          <p class="diff-card-text">End-to-end management of oversized, high-value industrial assets leveraging precision engineering and specialized heavy rigging.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <h3 class="diff-card-title">Breakbulk Authority</h3>
+          <p class="diff-card-text">Seamless execution of non-containerized cargo loading, backed by certified lashers, riggers, and experienced dock supervisors.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-anchor"></i></div>
+          <h3 class="diff-card-title">Advanced Stevedoring</h3>
+          <p class="diff-card-text">Maximized hook cycles and efficient vessel-to-dock handling through highly trained labor and optimized mechanical deployments.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-hard-hat"></i></div>
+          <h3 class="diff-card-title">Zero-Incident Safety</h3>
+          <p class="diff-card-text">Mandatory daily safety toolboxes, high-vis compliance, and strict hazard mitigation protocols enforced at every operational site.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-file-signature"></i></div>
+          <h3 class="diff-card-title">Rapid Customs Clearance</h3>
+          <p class="diff-card-text">In-house regulatory expertise ensuring swift, fully compliant cargo release and uninterrupted supply chain continuity.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-walkie-talkie"></i></div>
+          <h3 class="diff-card-title">On-Site Field Command</h3>
+          <p class="diff-card-text">Real-time port coordination from pre-berthing preparations to final discharge, guaranteeing proactive operational control.</p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3 class="diff-card-title">Tech-Driven Tracking</h3>
+          <p class="diff-card-text">Digitized cargo visibility and modernized reporting pipelines that replace supply chain blind spots with absolute clarity.</p>
+        </div>
+
       </div>
     </div>
   </section>
