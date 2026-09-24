@@ -569,10 +569,12 @@
           <p style="color: var(--text-muted);">From breakbulk and project cargo to RORO vessel operations, stevedoring, and customs clearance, we've grown into a trusted partner for 672+ clients worldwide.</p>
         </div>
         <div>
-          <video id="aboutVideoPlaylist" autoplay muted playsinline preload="metadata" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 380px;">
-  <source src="01 Port Drone.webm" type="video/webm">
-  <source src="01 Port Drone.mp4" type="video/mp4">
-</video>
+          <div>
+          <div style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; max-height: 380px;">
+            <video id="aboutVideo1" autoplay muted playsinline style="width: 100%; max-height: 380px; object-fit: cover; display: block; position: relative; z-index: 2; opacity: 1; transition: opacity 0.2s ease;"></video>
+            <video id="aboutVideo2" muted playsinline style="width: 100%; max-height: 380px; object-fit: cover; display: block; position: absolute; top: 0; left: 0; z-index: 1; opacity: 0; transition: opacity 0.2s ease;"></video>
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -813,8 +815,9 @@
       });
     }
 
-    // 3. Who We Are Video Playlist Loop
-    const videoElement = document.getElementById('aboutVideoPlaylist');
+    // 3. Dual-Video Seamless Playlist Loop (Zero Delay)
+    const v1 = document.getElementById('aboutVideo1');
+    const v2 = document.getElementById('aboutVideo2');
     
     const videoList = [
       { webm: '01 Port Drone.webm', mp4: '01 Port Drone.mp4' },
@@ -823,25 +826,57 @@
       { webm: '04 Bucket & truck.webm', mp4: '04 Bucket & truck.mp4' },
       { webm: '05 Car Loading.webm', mp4: '05 Car Loading.mp4' }
     ];
-    
-    let currentVideoIndex = 0;
 
-    if (videoElement) {
-      videoElement.addEventListener('ended', function () {
-        currentVideoIndex++;
-        
-        if (currentVideoIndex >= videoList.length) {
-          currentVideoIndex = 0;
-        }
-        
-        videoElement.innerHTML = `
-          <source src="${videoList[currentVideoIndex].webm}" type="video/webm">
-          <source src="${videoList[currentVideoIndex].mp4}" type="video/mp4">
+    if (v1 && v2) {
+      let currentIndex = 0;
+      let activeVideo = v1;
+      let hiddenVideo = v2;
+
+      function loadSources(videoElem, item) {
+        videoElem.innerHTML = `
+          <source src="${item.webm}" type="video/webm">
+          <source src="${item.mp4}" type="video/mp4">
         `;
-        
-        videoElement.load();
-        videoElement.play();
-      });
+        videoElem.load();
+      }
+
+      // Initialize initial and background videos
+      loadSources(activeVideo, videoList[0]);
+      activeVideo.play();
+
+      loadSources(hiddenVideo, videoList[1]);
+
+      function setupEndedListener(vElem) {
+        vElem.onended = function () {
+          const nextIndex = (currentIndex + 1) % videoList.length;
+          const upcomingIndex = (nextIndex + 1) % videoList.length;
+
+          // Immediately play preloaded video
+          hiddenVideo.play();
+
+          // Swap visibility layering
+          hiddenVideo.style.zIndex = '2';
+          hiddenVideo.style.opacity = '1';
+          activeVideo.style.zIndex = '1';
+          activeVideo.style.opacity = '0';
+
+          // Swap active references
+          const temp = activeVideo;
+          activeVideo = hiddenVideo;
+          hiddenVideo = temp;
+          currentIndex = nextIndex;
+
+          // Attach listener to the new active video
+          setupEndedListener(activeVideo);
+
+          // Preload the next upcoming video into hidden element
+          setTimeout(() => {
+            loadSources(hiddenVideo, videoList[upcomingIndex]);
+          }, 300);
+        };
+      }
+
+      setupEndedListener(activeVideo);
     }
 
     // 4. Team Carousel Logic
@@ -852,31 +887,31 @@
     const dots = document.querySelectorAll('.dot-indicator');
     const container = document.getElementById('carouselContainer');
     
-    let currentIndex = 0;
+    let carouselIndex = 0;
     const totalSlides = slides.length;
     let autoPlayTimer = null;
 
     if (track && slides.length > 0) {
       function updateCarousel(index) {
         if (index < 0) {
-          currentIndex = totalSlides - 1;
+          carouselIndex = totalSlides - 1;
         } else if (index >= totalSlides) {
-          currentIndex = 0;
+          carouselIndex = 0;
         } else {
-          currentIndex = index;
+          carouselIndex = index;
         }
         
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        track.style.transform = `translateX(-${carouselIndex * 100}%)`;
 
         dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentIndex);
+          dot.classList.toggle('active', i === carouselIndex);
         });
       }
 
       function startAutoPlay() {
         stopAutoPlay();
         autoPlayTimer = setInterval(() => {
-          updateCarousel(currentIndex + 1);
+          updateCarousel(carouselIndex + 1);
         }, 4000);
       }
 
@@ -886,14 +921,14 @@
 
       if (prevBtn) {
         prevBtn.addEventListener('click', () => {
-          updateCarousel(currentIndex - 1);
+          updateCarousel(carouselIndex - 1);
           startAutoPlay();
         });
       }
 
       if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-          updateCarousel(currentIndex + 1);
+          updateCarousel(carouselIndex + 1);
           startAutoPlay();
         });
       }
