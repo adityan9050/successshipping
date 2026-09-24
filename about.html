@@ -498,17 +498,17 @@
 }
     <!-- Add this CSS inside your <style> tags in the <head> section -->
 <style>
-  /* 12-CARD INFINITE CAROUSEL STYLES */
+  /* 12-CARD INFINITE CAROUSEL STYLES (UPSCALED) */
   .differentiator-carousel-section {
     background-color: var(--bg-cream);
-    padding: 5rem 0;
+    padding: 6rem 0; /* Increased top/bottom breathing room */
     overflow: hidden;
     border-top: 1px solid rgba(0,0,0,0.05);
   }
 
   .diff-section-header {
     text-align: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 4.5rem;
     padding: 0 20px;
   }
 
@@ -516,18 +516,17 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    /* Soft gradient masks on the left and right edges for a professional fade effect */
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
   }
 
   .diff-carousel-track {
     display: flex;
-    gap: 1.5rem;
+    gap: 2.5rem; /* Widened gap to match larger cards */
     width: max-content;
-    /* Adjust time (60s) to make it scroll faster or slower */
-    animation: infiniteScroll 60s linear infinite;
-    padding: 1rem 0;
+    /* Increased time to 90s because the track is now much wider */
+    animation: infiniteScroll 90s linear infinite; 
+    padding: 2rem 0;
   }
 
   .diff-carousel-track:hover {
@@ -539,12 +538,14 @@
     100% { transform: translateX(-50%); }
   }
 
+  /* Upgraded Card Dimensions */
   .diff-card {
-    width: 320px;
+    width: 420px; /* Scaled up from 320px */
+    min-height: 360px; /* Ensures a substantial, blocky aspect ratio */
     background: #FFFFFF;
     border: 1px solid var(--border-light);
-    border-radius: 12px;
-    padding: 2.25rem 1.75rem;
+    border-radius: 16px; /* Matched the Directors card radius */
+    padding: 3rem 2.5rem; /* Deeper padding for an executive feel */
     box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     flex-shrink: 0;
     display: flex;
@@ -554,36 +555,52 @@
   }
 
   .diff-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(238, 93, 43, 0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(238, 93, 43, 0.08);
     border-color: rgba(238, 93, 43, 0.3);
   }
 
+  /* Upgraded Icon & Typography */
   .diff-card-icon {
-    width: 48px;
-    height: 48px;
+    width: 64px; /* Larger icon box */
+    height: 64px;
     background: rgba(238, 93, 43, 0.1);
     color: var(--brand-orange);
-    border-radius: 10px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem; /* Larger icon */
+    margin-bottom: 2rem;
   }
 
   .diff-card-title {
-    font-size: 1.15rem;
+    font-size: 1.4rem; /* Scaled up from 1.15rem */
     font-weight: 800;
     color: var(--text-dark);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     letter-spacing: -0.01em;
   }
 
   .diff-card-text {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.65;
+    font-size: 1rem; /* Scaled up from 0.9rem for easier reading */
+    line-height: 1.7;
+  }
+
+  /* Responsive Fallback for Mobile */
+  @media (max-width: 768px) {
+    .diff-card {
+      width: 320px; /* Shrinks back down for phone screens */
+      min-height: 300px;
+      padding: 2rem 1.75rem;
+    }
+    .diff-carousel-track {
+      gap: 1.25rem;
+    }
+    .diff-card-title {
+      font-size: 1.2rem;
+    }
   }
 </style>
   </style>
