@@ -189,15 +189,16 @@
         font-size: 1.2rem;
       }
     }
-    /* DESKTOP-ONLY SCROLL EFFECT */
+/* DESKTOP-ONLY SCROLL EFFECT */
 @media (min-width: 992px) {
-  header.nav-header {
+  header.hero-header {
     transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
   }
   
-  header.nav-header.scrolled {
-    background-color: var(--brand-dark); /* Changes to the dark background */
-    padding: 0.75rem 0; /* Shrinks slightly */
+  header.hero-header.scrolled {
+    position: fixed; /* Keeps it attached to the top */
+    background-color: var(--brand-dark); 
+    padding: 0.75rem 0; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 }
@@ -366,36 +367,19 @@
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const slides = document.querySelectorAll(".carousel-slide");
-      let currentSlide = 0;
-      if (slides.length > 0) {
-        setInterval(() => {
-          slides[currentSlide].classList.remove("active");
-          currentSlide = (currentSlide + 1) % slides.length;
-          slides[currentSlide].classList.add("active");
-        }, 4000);
-      }
+  document.addEventListener("DOMContentLoaded", function () {
+    // 1. Hero Carousel Logic
+    const slides = document.querySelectorAll(".carousel-slide");
+    let currentSlide = 0;
+    if (slides.length > 0) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }, 4000);
+    }
 
-      // Mobile Menu Handler
-      const menuBtn = document.getElementById('mobileMenuBtn');
-      const navWrapper = document.getElementById('navLinksWrapper');
-
-      if (menuBtn && navWrapper) {
-        menuBtn.addEventListener('click', () => {
-          navWrapper.classList.toggle('is-active');
-          const icon = menuBtn.querySelector('i');
-          if (icon) {
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
-          }
-        });
-      }
-    });
-  </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Mobile Menu Toggle
+    // 2. Mobile Menu Handler (Single instance)
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navWrapper = document.getElementById('navLinksWrapper');
 
@@ -410,16 +394,18 @@
       });
     }
 
-    // Scroll Detection for Sticky Header
-    const header = document.querySelector('.nav-header');
+    // 3. Desktop Sticky Header Scroll Logic (Fixed class name)
+    const header = document.querySelector('.hero-header');
     
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+    if (header) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
   });
 </script>
 </body>
