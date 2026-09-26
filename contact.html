@@ -356,36 +356,37 @@ header.nav-header {
       <div class="form-container">
         <h2 class="form-title">Send a Message</h2>
 
-        <!-- FORM TAG -->
         <form action="https://api.web3forms.com/submit" method="POST">
           
-          <!-- 2. ADDED HIDDEN INPUTS -->
+          <!-- WEB3FORMS HIDDEN INPUTS -->
           <input type="hidden" name="access_key" value="8f702d6e-4fb5-430b-8b65-9d69f9996cb7">
-          <input type="hidden" name="subject" value="New Shipment/Contact Form Submission - Success Shipping Services">
+          <input type="hidden" name="subject" value="New Shipment Enquiry - Success Shipping Services">
+          <input type="hidden" name="redirect" value="thank-you.html">
 
-          <!-- 3. THIS IS YOUR NEW REDIRECT LINE -->
-          <input type="hidden" name="redirect" value="thankyou.html">
-          
           <!-- YOUR DETAILS -->
           <div class="section-label">YOUR DETAILS</div>
           <div class="form-row">
             <div class="form-group">
               <label for="name">Name <span>*</span></label>
-              <input type="text" id="name" class="form-input" placeholder="Your name" required>
+              <!-- Added name="Full_Name" -->
+              <input type="text" id="name" name="Full_Name" class="form-input" placeholder="Your name" required>
             </div>
             <div class="form-group">
               <label for="company">Company Name <span>*</span></label>
-              <input type="text" id="company" class="form-input" placeholder="Your company" required>
+              <!-- Added name="Company_Name" -->
+              <input type="text" id="company" name="Company_Name" class="form-input" placeholder="Your company" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="email">Email <span>*</span></label>
-              <input type="email" id="email" class="form-input" placeholder="you@company.com" required>
+              <!-- Added name="Email_Address" -->
+              <input type="email" id="email" name="Email_Address" class="form-input" placeholder="you@company.com" required>
             </div>
             <div class="form-group">
               <label for="phone">Phone <span>*</span></label>
-              <input type="tel" id="phone" class="form-input" placeholder="+91 98765 43210" required>
+              <!-- Added name="Phone_Number" -->
+              <input type="tel" id="phone" name="Phone_Number" class="form-input" placeholder="+91 98765 43210" required>
             </div>
           </div>
 
@@ -393,7 +394,8 @@ header.nav-header {
           <div class="section-label">SHIPMENT DETAILS</div>
           <div class="form-group">
             <label for="service">Service Interested In <span>*</span></label>
-            <select id="service" class="form-select" required>
+            <!-- Added name="Service_Interested_In" -->
+            <select id="service" name="Service_Interested_In" class="form-select" required>
               <option value="" disabled selected>Select a service</option>
               <option value="RORO Vessel Operations">RORO Vessel Operations</option>
               <option value="Warehousing & Yard Management">Warehousing & Yard Management</option>
@@ -420,7 +422,8 @@ header.nav-header {
           <div class="form-row">
             <div class="form-group">
               <label for="cargoCategory">Cargo Category</label>
-              <select id="cargoCategory" class="form-select">
+              <!-- Added name="Cargo_Category" -->
+              <select id="cargoCategory" name="Cargo_Category" class="form-select">
                 <option value="" disabled selected>Select a category</option>
                 <option value="Breakbulk / Project Cargo">Breakbulk / Project Cargo</option>
                 <option value="Machinery & Industrial Equipment">Machinery & Industrial Equipment</option>
@@ -434,47 +437,56 @@ header.nav-header {
             </div>
             <div class="form-group">
               <label for="cargoType">Cargo Type / Description</label>
-              <input type="text" id="cargoType" class="form-input" placeholder="e.g. Wind turbine blade">
+              <!-- Added name="Cargo_Type" -->
+              <input type="text" id="cargoType" name="Cargo_Type" class="form-input" placeholder="e.g. Wind turbine blade">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="weight">Cargo Weight</label>
-              <input type="text" id="weight" class="form-input" placeholder="e.g. 25 MT">
+              <!-- Added name="Cargo_Weight" -->
+              <input type="text" id="weight" name="Cargo_Weight" class="form-input" placeholder="e.g. 25 MT">
             </div>
             <div class="form-group">
               <label for="dimensions">Cargo Dimensions</label>
-              <input type="text" id="dimensions" class="form-input" placeholder="e.g. 12m x 3m x 3m">
+              <!-- Added name="Cargo_Dimensions" -->
+              <input type="text" id="dimensions" name="Cargo_Dimensions" class="form-input" placeholder="e.g. 12m x 3m x 3m">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="origin">Origin (Port / City)</label>
-              <input type="text" id="origin" class="form-input" placeholder="e.g. Chennai Port">
+              <!-- Added name="Origin_Location" -->
+              <input type="text" id="origin" name="Origin_Location" class="form-input" placeholder="e.g. Chennai Port">
             </div>
             <div class="form-group">
               <label for="destination">Destination (Port / City)</label>
-              <input type="text" id="destination" class="form-input" placeholder="e.g. Kolkata Port">
+              <!-- Added name="Destination_Location" -->
+              <input type="text" id="destination" name="Destination_Location" class="form-input" placeholder="e.g. Kolkata Port">
             </div>
           </div>
 
           <div class="form-group">
             <label for="shipmentDate">Expected Shipment Date</label>
-            <input type="date" id="shipmentDate" class="form-input">
+            <!-- Added name="Shipment_Date" -->
+            <input type="date" id="shipmentDate" name="Shipment_Date" class="form-input">
           </div>
 
           <!-- MESSAGE -->
           <div class="section-label">MESSAGE</div>
           <div class="form-group">
             <label for="message">Message <span>*</span></label>
-            <textarea id="message" class="form-textarea" placeholder="Tell us about your cargo" required></textarea>
+            <!-- Added name="Message" -->
+            <textarea id="message" name="Message" class="form-textarea" placeholder="Tell us about your cargo" required></textarea>
           </div>
+
+          <!-- Anti-Spam Honeypot (Hidden) -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
           <button type="submit" class="btn-orange-pill" style="padding: 0.8rem 2.2rem; margin-top: 0.5rem;">SEND NOW</button>
         </form>
-      </div>
 
       <!-- RIGHT COLUMN: DIRECT CONTACT -->
       <div class="direct-contact-container">
