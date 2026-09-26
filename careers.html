@@ -437,44 +437,9 @@
         <p>Explore open positions across operations, port logistics, agency, and administration.</p>
       </div>
 
+     <!-- DYNAMIC JOBS CONTAINER -->
       <div class="jobs-list">
-
-        <div class="job-card">
-          <div class="job-info">
-            <h3>Port Operations Executive</h3>
-            <div class="job-details">
-              <span><i class="fa-solid fa-location-dot"></i> Chennai Port</span>
-              <span><i class="fa-solid fa-briefcase"></i> Full-Time</span>
-              <span><i class="fa-solid fa-clock"></i> 3-5 Years Exp.</span>
-            </div>
-          </div>
-          <a href="contact.html?subject=Career+Application+-+Port+Operations+Executive" class="btn-orange-pill">Apply Now</a>
-        </div>
-
-        <div class="job-card">
-          <div class="job-info">
-            <h3>Vessel Agency Officer</h3>
-            <div class="job-details">
-              <span><i class="fa-solid fa-location-dot"></i> Chennai / Ennore</span>
-              <span><i class="fa-solid fa-briefcase"></i> Full-Time</span>
-              <span><i class="fa-solid fa-clock"></i> 2+ Years Exp.</span>
-            </div>
-          </div>
-          <a href="contact.html?subject=Career+Application+-+Vessel+Agency+Officer" class="btn-orange-pill">Apply Now</a>
-        </div>
-
-        <div class="job-card">
-          <div class="job-info">
-            <h3>Customs Clearance Manager (CHA)</h3>
-            <div class="job-details">
-              <span><i class="fa-solid fa-location-dot"></i> Chennai HQ</span>
-              <span><i class="fa-solid fa-briefcase"></i> Full-Time</span>
-              <span><i class="fa-solid fa-clock"></i> 5+ Years Exp.</span>
-            </div>
-          </div>
-          <a href="contact.html?subject=Career+Application+-+Customs+Clearance+Manager" class="btn-orange-pill">Apply Now</a>
-        </div>
-
+        <p style="color: var(--text-muted); font-style: italic;">Loading open opportunities...</p>
       </div>
 
     </div>
@@ -567,6 +532,49 @@
         }
       });
     }
+
+    // 3. Dynamic Job Openings Loader from Google Sheets
+      const jobsContainer = document.querySelector('.jobs-list');
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbz-w-s1CZAp4rw438Nhw1EErsyxHug7VmAD4mwGK8OlXqFiUSsOAzKZcV-nVK6nqIsZ/exec';
+
+      if (jobsContainer) {
+        fetch(scriptUrl)
+          .then(response => response.json())
+          .then(jobs => {
+            if (!jobs || jobs.length === 0) {
+              jobsContainer.innerHTML = '<p style="color: var(--text-muted);">No open roles at the moment. Please check back later!</p>';
+              return;
+            }
+
+            let html = '';
+            jobs.forEach(job => {
+              const title = job.title || 'Open Position';
+              const location = job.location || 'Chennai';
+              const type = job.type || 'Full-Time';
+              const experience = job.experience || 'As applicable';
+              const subjectParam = encodeURIComponent('Career Application - ' + title);
+
+              html += `
+                <div class="job-card">
+                  <div class="job-info">
+                    <h3>${title}</h3>
+                    <div class="open-details job-details">
+                      <span><i class="fa-solid fa-location-dot"></i> ${location}</span>
+                      <span><i class="fa-solid fa-briefcase"></i> ${type}</span>
+                      <span><i class="fa-solid fa-clock"></i> ${experience}</span>
+                    </div>
+                  </div>
+                  <a href="contact.html?subject=${subjectParam}" class="btn-orange-pill">Apply Now</a>
+                </div>
+              `;
+            });
+            jobsContainer.innerHTML = html;
+          })
+          .catch(error => {
+            console.error('Error fetching jobs:', error);
+            jobsContainer.innerHTML = '<p style="color: var(--text-muted);">Unable to load job openings at this time.</p>';
+          });
+      }
   });
 </script>
 </body>
