@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details | Success Shipping Services</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-orange: #EE5D2B;
+      --brand-orange-hover: #D84C1C;
+      --brand-dark: #0A0C0E;
+      --text-dark: #111827;
+      --text-muted: #6B7280;
+      --border-light: #E5E7EB;
+      --bg-light: #F9FAFB;
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-family); color: var(--text-dark); background-color: #FFFFFF; line-height: 1.5; }
+
+    .container { width: 90%; max-width: 900px; margin: 0 auto; }
+
+    .site-logo {
+      height: 55px !important;
+      max-height: 55px !important;
+      width: auto !important;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* STICKY HEADER */
+    header.nav-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: var(--brand-dark);
+      padding: 1rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.88rem;
+      opacity: 0.85;
+      transition: 0.2s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      opacity: 1;
+      color: var(--brand-orange);
+      font-weight: 700;
+    }
+
+    /* JOB DETAILS CONTENT */
+    .job-detail-section { padding: 9rem 0 5rem; }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--brand-orange); }
+
+    .job-header-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .job-header-card h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .job-meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .job-meta-badges span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .job-body-content {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .job-body-content h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .job-body-content h3:first-child { margin-top: 0; }
+
+    .job-body-content p, .job-body-content ul {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .job-body-content ul {
+      padding-left: 1.5rem;
+    }
+
+    .job-body-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .apply-box {
+      text-align: center;
+      background: #FDF2EE;
+      border: 1px solid rgba(238, 93, 43, 0.2);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+
+    .apply-box h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .apply-box p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-orange-pill {
+      background-color: var(--brand-orange);
+      color: #FFFFFF;
+      padding: 0.8rem 2.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.2s;
+    }
+
+    .btn-orange-pill:hover { background-color: var(--brand-orange-hover); }
+
+    /* FOOTER */
+    footer { background-color: var(--brand-dark); color: #FFFFFF; padding: 3rem 0 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="nav-header">
+    <div class="container nav-wrapper">
+      <a href="index.html">
+        <img src="logo-white.png" alt="Success Shipping Services" class="site-logo">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="careers.html" class="active">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="job-detail-section">
+    <div class="container" id="job-detail-container">
+      <a href="careers.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to All Openings</a>
+      <p style="color: var(--text-muted); font-style: italic;">Loading job details...</p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 Success Shipping Services (Chennai) Pvt Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const jobTitleParam = urlParams.get('title');
+      const container = document.getElementById('job-detail-container');
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbz-w-s1CZAp4rw438Nhw1EErsyxHug7VmAD4mwGK8OlXqFiUSsOAzKZcV-nVK6nqIsZ/exec';
+
+      if (!jobTitleParam) {
+        container.innerHTML = '<a href="careers.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Careers</a><p>No job specified.</p>';
+        return;
+      }
+
+      fetch(scriptUrl)
+        .then(response => response.json())
+        .then(jobs => {
+          // Find matching job by title
+          const job = jobs.find(j => j.title && j.title.trim().toLowerCase() === jobTitleParam.trim().toLowerCase());
+
+          if (!job) {
+            container.innerHTML = '<a href="careers.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Careers</a><p>Job opening not found or has been closed.</p>';
+            return;
+          }
+
+          const subjectParam = encodeURIComponent('Career Application - ' + job.title);
+
+          container.innerHTML = `
+            <a href="careers.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to All Openings</a>
+            
+            <div class="job-header-card">
+              <h1>${job.title}</h1>
+              <div class="job-meta-badges">
+                <span><i class="fa-solid fa-location-dot" style="color: var(--brand-orange);"></i> ${job.location || 'Chennai'}</span>
+                <span><i class="fa-solid fa-briefcase" style="color: var(--brand-orange);"></i> ${job.type || 'Full-Time'}</span>
+                <span><i class="fa-solid fa-clock" style="color: var(--brand-orange);"></i> ${job.experience || 'As applicable'}</span>
+              </div>
+            </div>
+
+            <div class="job-body-content">
+              <h3>About the Role</h3>
+              <p>${job.description || 'No description provided.'}</p>
+
+              <h3>Key Responsibilities</h3>
+              <p>${job.responsibilities ? job.responsibilities.replace(/\n/g, '<br>') : 'Details will be discussed during the interview.'}</p>
+
+              <h3>Requirements & Qualifications</h3>
+              <p>${job.requirements ? job.requirements.replace(/\n/g, '<br>') : 'Standard company requirements apply.'}</p>
+            </div>
+
+            <div class="apply-box">
+              <h3>Interested in this position?</h3>
+              <p>Send us your resume and application details directly through our secure contact portal.</p>
+              <a href="contact.html?subject=${subjectParam}" class="btn-orange-pill">Apply For This Role</a>
+            </div>
+          `;
+        })
+        .catch(error => {
+          console.error('Error loading job details:', error);
+          container.innerHTML = '<a href="careers.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Careers</a><p>Unable to load job details at this time.</p>';
+        });
+    });
+  </script>
+</body>
+</html>
