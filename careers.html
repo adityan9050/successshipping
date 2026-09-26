@@ -552,7 +552,6 @@
               const location = job.location || 'Chennai';
               const type = job.type || 'Full-Time';
               const experience = job.experience || 'As applicable';
-              const subjectParam = encodeURIComponent('Career Application - ' + title);
 
               html += `
                 <div class="job-card">
@@ -564,7 +563,7 @@
                       <span><i class="fa-solid fa-clock"></i> ${experience}</span>
                     </div>
                   </div>
-                  <a href="contact.html?subject=${subjectParam}" class="btn-orange-pill">Apply Now</a>
+                  <a href="job-detail.html?title=${encodeURIComponent(title)}" class="btn-orange-pill">View Details</a>
                 </div>
               `;
             });
