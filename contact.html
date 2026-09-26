@@ -356,7 +356,16 @@ header.nav-header {
       <div class="form-container">
         <h2 class="form-title">Send a Message</h2>
 
-        <form action="#" method="POST">
+        <!-- FORM TAG -->
+        <form action="https://api.web3forms.com/submit" method="POST">
+          
+          <!-- 2. ADDED HIDDEN INPUTS -->
+          <input type="hidden" name="access_key" value="8f702d6e-4fb5-430b-8b65-9d69f9996cb7">
+          <input type="hidden" name="subject" value="New Shipment/Contact Form Submission - Success Shipping Services">
+
+          <!-- 3. THIS IS YOUR NEW REDIRECT LINE -->
+          <input type="hidden" name="redirect" value="thankyou.html">
+          
           <!-- YOUR DETAILS -->
           <div class="section-label">YOUR DETAILS</div>
           <div class="form-row">
