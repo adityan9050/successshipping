@@ -213,44 +213,45 @@
           <p>Fill out the details below and attach your resume to apply.</p>
         </div>
 
-        <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
-          <!-- Web3Forms Access Key (Use your same key here) -->
-          <input type="hidden" name="access_key" value="8f702d6e-4fb5-430b-8b65-9d69f9996cb7">
-          
-          <!-- Dynamic Subject Field updated via JS -->
-          <input type="hidden" name="subject" id="form-subject-input" value="Career Application">
-          
-          <!-- Redirect to Thank You page after submission -->
-          <input type="hidden" name="redirect" value="https://successshippingind.netlify.app/thank-you.html">
+        <form action="https://formsubmit.co/el/yovego" method="POST" enctype="multipart/form-data">
+  
+  <!-- Dynamic Subject Field (Updated automatically by JS) -->
+  <input type="hidden" name="_subject" id="form-subject-input" value="Career Application">
+  
+  <!-- Redirect to Thank You page after successful submission -->
+  <input type="hidden" name="_next" value="https://successshippingind.netlify.app/thank-you.html">
 
-          <div class="form-group">
-            <label for="name">Full Name <span style="color: var(--brand-orange);">*</span></label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
-          </div>
+  <!-- Disables the automatic captcha screen for immediate redirect -->
+  <input type="hidden" name="_captcha" value="false">
 
-          <div class="form-group">
-            <label for="email">Email Address <span style="color: var(--brand-orange);">*</span></label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" required>
-          </div>
+  <div class="form-group">
+    <label for="name">Full Name <span style="color: var(--brand-orange);">*</span></label>
+    <input type="text" id="name" name="Full Name" class="form-control" placeholder="Enter your full name" required>
+  </div>
 
-          <div class="form-group">
-            <label for="phone">Phone Number <span style="color: var(--brand-orange);">*</span></label>
-            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
-          </div>
+  <div class="form-group">
+    <label for="email">Email Address <span style="color: var(--brand-orange);">*</span></label>
+    <input type="email" id="email" name="Email" class="form-control" placeholder="name@example.com" required>
+  </div>
 
-          <div class="form-group">
-            <label for="message">Cover Note / Experience Summary</label>
-            <textarea id="message" name="message" class="form-control" placeholder="Briefly describe your relevant experience..."></textarea>
-          </div>
+  <div class="form-group">
+    <label for="phone">Phone Number <span style="color: var(--brand-orange);">*</span></label>
+    <input type="tel" id="phone" name="Phone Number" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+  </div>
 
-          <div class="form-group">
-            <label for="resume">Upload Resume / CV (PDF, DOCX) <span style="color: var(--brand-orange);">*</span></label>
-            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" class="form-control" required style="padding: 0.6rem;">
-            <small style="color: var(--text-muted); display: block; margin-top: 0.4rem;">Max file size: 5MB</small>
-          </div>
+  <div class="form-group">
+    <label for="message">Cover Note / Experience Summary</label>
+    <textarea id="message" name="Experience Summary" class="form-control" placeholder="Briefly describe your relevant experience..."></textarea>
+  </div>
 
-          <button type="submit" class="btn-orange-pill">Submit Application</button>
-        </form>
+  <div class="form-group">
+    <label for="resume">Upload Resume / CV (PDF, DOCX) <span style="color: var(--brand-orange);">*</span></label>
+    <input type="file" id="resume" name="Attachment" accept=".pdf,.doc,.docx" class="form-control" required style="padding: 0.6rem;">
+    <small style="color: var(--text-muted); display: block; margin-top: 0.4rem;">Max file size: 25MB (Free)</small>
+  </div>
+
+  <button type="submit" class="btn-orange-pill">Submit Application</button>
+</form>
       </div>
     </div>
   </main>
