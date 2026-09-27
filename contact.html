@@ -42,16 +42,16 @@
     }
 
     /* ABSOLUTE TRANSPARENT HEADER */
-header.nav-header {
-  position: fixed; /* This overlays the header on top of the image */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: transparent;
-  border-bottom: none;
-  padding: 1rem 0;
-}
+    header.nav-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: transparent;
+      border-bottom: none;
+      padding: 1rem 0;
+    }
 
     .nav-wrapper {
       display: flex !important;
@@ -150,7 +150,7 @@ header.nav-header {
 
     /* CONTENT LAYOUT */
     .content-section { padding: 4rem 0 5rem; }
-    .contact-grid { display: grid; grid-template-columns: 1.35fr 0.85fr; gap: 4rem; }
+    .contact-grid { display: grid; grid-template-columns: 1.35fr 0.85fr; gap: 4rem; align-items: start; }
 
     /* FORM SECTION */
     .form-title { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: 1.5rem; }
@@ -274,18 +274,19 @@ header.nav-header {
       .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
     }
+
     /* DESKTOP-ONLY SCROLL EFFECT */
-@media (min-width: 992px) {
-  header.nav-header {
-    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  header.nav-header.scrolled {
-    background-color: var(--brand-dark); /* Changes to the dark background */
-    padding: 0.75rem 0; /* Shrinks slightly */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  }
-}
+    @media (min-width: 992px) {
+      header.nav-header {
+        transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      header.nav-header.scrolled {
+        background-color: var(--brand-dark);
+        padding: 0.75rem 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+    }
   </style>
 </head>
 <body>
@@ -343,8 +344,8 @@ header.nav-header {
     display: flex; 
     align-items: center; 
     justify-content: center;
-  padding-bottom: 10rem;
-  text-align: center;">
+    padding-bottom: 10rem;
+    text-align: center;">
     <h1 style="color: #D84C1C; font-size: 2.8rem; font-weight: 800;">Contact Us</h1>
   </section>
 
@@ -368,24 +369,20 @@ header.nav-header {
           <div class="form-row">
             <div class="form-group">
               <label for="name">Name <span>*</span></label>
-              <!-- Added name="Full_Name" -->
               <input type="text" id="name" name="Full_Name" class="form-input" placeholder="Your name" required>
             </div>
             <div class="form-group">
               <label for="company">Company Name <span>*</span></label>
-              <!-- Added name="Company_Name" -->
               <input type="text" id="company" name="Company_Name" class="form-input" placeholder="Your company" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="email">Email <span>*</span></label>
-              <!-- Added name="Email_Address" -->
               <input type="email" id="email" name="Email_Address" class="form-input" placeholder="you@company.com" required>
             </div>
             <div class="form-group">
               <label for="phone">Phone <span>*</span></label>
-              <!-- Added name="Phone_Number" -->
               <input type="tel" id="phone" name="Phone_Number" class="form-input" placeholder="+91 98765 43210" required>
             </div>
           </div>
@@ -394,7 +391,6 @@ header.nav-header {
           <div class="section-label">SHIPMENT DETAILS</div>
           <div class="form-group">
             <label for="service">Service Interested In <span>*</span></label>
-            <!-- Added name="Service_Interested_In" -->
             <select id="service" name="Service_Interested_In" class="form-select" required>
               <option value="" disabled selected>Select a service</option>
               <option value="RORO Vessel Operations">RORO Vessel Operations</option>
@@ -422,7 +418,6 @@ header.nav-header {
           <div class="form-row">
             <div class="form-group">
               <label for="cargoCategory">Cargo Category</label>
-              <!-- Added name="Cargo_Category" -->
               <select id="cargoCategory" name="Cargo_Category" class="form-select">
                 <option value="" disabled selected>Select a category</option>
                 <option value="Breakbulk / Project Cargo">Breakbulk / Project Cargo</option>
@@ -437,7 +432,6 @@ header.nav-header {
             </div>
             <div class="form-group">
               <label for="cargoType">Cargo Type / Description</label>
-              <!-- Added name="Cargo_Type" -->
               <input type="text" id="cargoType" name="Cargo_Type" class="form-input" placeholder="e.g. Wind turbine blade">
             </div>
           </div>
@@ -445,12 +439,10 @@ header.nav-header {
           <div class="form-row">
             <div class="form-group">
               <label for="weight">Cargo Weight</label>
-              <!-- Added name="Cargo_Weight" -->
               <input type="text" id="weight" name="Cargo_Weight" class="form-input" placeholder="e.g. 25 MT">
             </div>
             <div class="form-group">
               <label for="dimensions">Cargo Dimensions</label>
-              <!-- Added name="Cargo_Dimensions" -->
               <input type="text" id="dimensions" name="Cargo_Dimensions" class="form-input" placeholder="e.g. 12m x 3m x 3m">
             </div>
           </div>
@@ -458,19 +450,16 @@ header.nav-header {
           <div class="form-row">
             <div class="form-group">
               <label for="origin">Origin (Port / City)</label>
-              <!-- Added name="Origin_Location" -->
               <input type="text" id="origin" name="Origin_Location" class="form-input" placeholder="e.g. Chennai Port">
             </div>
             <div class="form-group">
               <label for="destination">Destination (Port / City)</label>
-              <!-- Added name="Destination_Location" -->
               <input type="text" id="destination" name="Destination_Location" class="form-input" placeholder="e.g. Kolkata Port">
             </div>
           </div>
 
           <div class="form-group">
             <label for="shipmentDate">Expected Shipment Date</label>
-            <!-- Added name="Shipment_Date" -->
             <input type="date" id="shipmentDate" name="Shipment_Date" class="form-input">
           </div>
 
@@ -478,7 +467,6 @@ header.nav-header {
           <div class="section-label">MESSAGE</div>
           <div class="form-group">
             <label for="message">Message <span>*</span></label>
-            <!-- Added name="Message" -->
             <textarea id="message" name="Message" class="form-textarea" placeholder="Tell us about your cargo" required></textarea>
           </div>
 
@@ -487,6 +475,7 @@ header.nav-header {
 
           <button type="submit" class="btn-orange-pill" style="padding: 0.8rem 2.2rem; margin-top: 0.5rem;">SEND NOW</button>
         </form>
+      </div>
 
       <!-- RIGHT COLUMN: DIRECT CONTACT -->
       <div class="direct-contact-container">
@@ -591,7 +580,6 @@ header.nav-header {
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // 1. Mobile Menu Toggle (Single instance)
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navWrapper = document.getElementById('navLinksWrapper');
 
@@ -606,9 +594,7 @@ header.nav-header {
       });
     }
 
-    // 2. Desktop Sticky Header Scroll Logic
     const header = document.querySelector('.nav-header');
-    
     if (header) {
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
