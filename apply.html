@@ -203,58 +203,122 @@
   </header>
 
   <!-- FORM SECTION -->
+  <!-- FORM SECTION -->
   <main class="apply-section">
     <div class="container">
       <a href="careers.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Openings</a>
       
-      <div class="form-card">
+      <div class="form-card" id="form-container">
         <div class="form-header">
           <h1 id="job-title-heading">Job Application</h1>
           <p>Fill out the details below and attach your resume to apply.</p>
         </div>
 
-        <form action="https://formsubmit.co/el/yovego" method="POST" enctype="multipart/form-data">
-  
-  <!-- Dynamic Subject Field (Updated automatically by JS) -->
-  <input type="hidden" name="_subject" id="form-subject-input" value="Career Application">
-  
-  <!-- Redirect to Thank You page after successful submission -->
-  <input type="hidden" name="_next" value="https://successshippingind.netlify.app/thank-you.html">
+        <!-- Status message for errors -->
+        <div id="form-status" style="display: none; padding: 1rem; margin-bottom: 1rem; border-radius: 8px; background: #FEE2E2; color: #991B1B; font-size: 0.9rem; text-align: center;"></div>
 
-  <!-- Disables the automatic captcha screen for immediate redirect -->
-  <input type="hidden" name="_captcha" value="false">
+        <form id="application-form">
+          <!-- Dynamic Subject Field updated via JS -->
+          <input type="hidden" name="_subject" id="form-subject-input" value="Career Application">
 
-  <div class="form-group">
-    <label for="name">Full Name <span style="color: var(--brand-orange);">*</span></label>
-    <input type="text" id="name" name="Full Name" class="form-control" placeholder="Enter your full name" required>
-  </div>
+          <div class="form-group">
+            <label for="name">Full Name <span style="color: var(--brand-orange);">*</span></label>
+            <input type="text" id="name" name="Full Name" class="form-control" placeholder="Enter your full name" required>
+          </div>
 
-  <div class="form-group">
-    <label for="email">Email Address <span style="color: var(--brand-orange);">*</span></label>
-    <input type="email" id="email" name="Email" class="form-control" placeholder="name@example.com" required>
-  </div>
+          <div class="form-group">
+            <label for="email">Email Address <span style="color: var(--brand-orange);">*</span></label>
+            <input type="email" id="email" name="Email" class="form-control" placeholder="name@example.com" required>
+          </div>
 
-  <div class="form-group">
-    <label for="phone">Phone Number <span style="color: var(--brand-orange);">*</span></label>
-    <input type="tel" id="phone" name="Phone Number" class="form-control" placeholder="+91 XXXXX XXXXX" required>
-  </div>
+          <div class="form-group">
+            <label for="phone">Phone Number <span style="color: var(--brand-orange);">*</span></label>
+            <input type="tel" id="phone" name="Phone Number" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+          </div>
 
-  <div class="form-group">
-    <label for="message">Cover Note / Experience Summary</label>
-    <textarea id="message" name="Experience Summary" class="form-control" placeholder="Briefly describe your relevant experience..."></textarea>
-  </div>
+          <div class="form-group">
+            <label for="message">Cover Note / Experience Summary</label>
+            <textarea id="message" name="Experience Summary" class="form-control" placeholder="Briefly describe your relevant experience..."></textarea>
+          </div>
 
-  <div class="form-group">
-    <label for="resume">Upload Resume / CV (PDF, DOCX) <span style="color: var(--brand-orange);">*</span></label>
-    <input type="file" id="resume" name="Attachment" accept=".pdf,.doc,.docx" class="form-control" required style="padding: 0.6rem;">
-    <small style="color: var(--text-muted); display: block; margin-top: 0.4rem;">Max file size: 25MB (Free)</small>
-  </div>
+          <div class="form-group">
+            <label for="resume">Upload Resume / CV (PDF, DOCX) <span style="color: var(--brand-orange);">*</span></label>
+            <input type="file" id="resume" name="Attachment" accept=".pdf,.doc,.docx" class="form-control" required style="padding: 0.6rem;">
+            <small style="color: var(--text-muted); display: block; margin-top: 0.4rem;">Max file size: 25MB</small>
+          </div>
 
-  <button type="submit" class="btn-orange-pill">Submit Application</button>
-</form>
+          <button type="submit" id="submit-btn" class="btn-orange-pill">Submit Application</button>
+        </form>
       </div>
     </div>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 1. Capture dynamic job title from URL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const subjectParam = urlParams.get('subject');
+
+      if (subjectParam) {
+        const decodedSubject = decodeURIComponent(subjectParam);
+
+        const subjectInput = document.getElementById('form-subject-input');
+        if (subjectInput) {
+          subjectInput.value = decodedSubject;
+        }
+
+        const heading = document.getElementById('job-title-heading');
+        if (heading) {
+          heading.textContent = decodedSubject.replace('Career Application - ', 'Applying for: ');
+        }
+      }
+
+      // 2. Handle form submission via AJAX (No page redirects)
+      const form = document.getElementById('application-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const formContainer = document.getElementById('form-container');
+      const formStatus = document.getElementById('form-status');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting Application...';
+        formStatus.style.display = 'none';
+
+        const formData = new FormData(form);
+
+        // Submit directly to FormSubmit AJAX endpoint
+        fetch('https://formsubmit.co/ajax/el/yovego', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success === 'true' || data.success === true) {
+            // Display inline success card upon completion
+            formContainer.innerHTML = `
+              <div style="text-align: center; padding: 2rem 1rem;">
+                <i class="fa-solid fa-circle-check" style="font-size: 3.5rem; color: var(--brand-orange); margin-bottom: 1rem;"></i>
+                <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-dark);">Application Submitted!</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Thank you for applying. Our HR team has received your application and resume and will review it shortly.</p>
+                <a href="careers.html" class="btn-orange-pill" style="display: inline-block; width: auto; padding: 0.75rem 2rem; text-decoration: none;">Back to Openings</a>
+              </div>
+            `;
+          } else {
+            throw new Error('Form submission failed');
+          }
+        })
+        .catch(error => {
+          console.error('Submission error:', error);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Application';
+          formStatus.style.display = 'block';
+          formStatus.textContent = 'Unable to send application. Please try again or check your attachment size.';
+        });
+      });
+    });
+  </script>
 
   <!-- FOOTER -->
   <footer>
